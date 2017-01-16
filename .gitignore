@@ -8,6 +8,7 @@
 *.docx
 *.xls
 *.xlsx
+!Shablon_Main.xlsx
 *.xlsm
 *.uos
 *.pyc
