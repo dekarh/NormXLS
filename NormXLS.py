@@ -19,37 +19,37 @@ import xlwt
 import NormalizeFields as norm
 from functools import partial
 
-MANIPULATE_LABELS = ["-------------------------",
-                     "ФИО_из_поля",
-                     "-------------------------",
-                     "ФИО_при_рождений_из_поля",
-                     "-------------------------",
-                     "Пол_получить_из_ФИО",
-                     "Пол_подставить_свои_значения",
-                     "-------------------------",
-                     "Адрес_регистраций_из_поля",
-                     "-------------------------",
-                     "Адрес_проживания_из_поля",
+MANIPULATE_LABELS = ["-------------------------"
+                     , "ФИО_из_поля"
+                     , "-------------------------"
+                     , "ФИО_при_рождении_из_поля"
+                     , "-------------------------"
+#                     , "Пол_получить_из_ФИО"
+#                     , "Пол_подставить_свои_значения"
+#                     , "-------------------------"
+#                     , "Адрес_регистрации_из_поля"
+#                     , "-------------------------"
+#                     , "Адрес_проживания_из_поля"
                      ]
 
 SNILS_LABEL = ["СНИЛС"]
 FIO_LABELS = ["ФИО.Фамилия", "ФИО.Имя", "ФИО.Отчество"]
-FIO_BIRTH_LABELS = ["ФИО_при_рождений.Фамилия", "ФИО_при_рождений.Имя", "ФИО_при_рождений.Отчество"]
+FIO_BIRTH_LABELS = ["ФИО_при_рождении.Фамилия", "ФИО_при_рождении.Имя", "ФИО_при_рождении.Отчество"]
 GENDER_LABEL = ["Пол"]
 DATE_BIRTH_LABEL = ["Дата_рождения"]
 PLACE_BIRTH_LABELS = ["Место_рождения.Страна", "Место_рождения.Область", "Место_рождения.Район",
                       "Место_рождения.Город"]
 PASSPORT_DATA_LABELS = ["Данные_паспорта.Серия", "Данные_паспорта.Номер", "Данные_паспорта.Дата_выдачи",
                         "Данные_паспорта.Кем_выдан", "Данные_паспорта.Код_подразделения"]
-ADRESS_REG_LABELS = ["Адрес_регистраций.Индекс",
-                     "Адрес_регистраций.Регион", "Адрес_регистраций.Тип_региона",
-                     "Адрес_регистраций.Район", "Адрес_регистраций.Тип_района",
-                     "Адрес_регистраций.Город", "Адрес_регистраций.Тип_города",
-                     "Адрес_регистраций.Населенный_пункт", "Адрес_регистраций.Тип_населенного_пункта",
-                     "Адрес_регистраций.Улица", "Адрес_регистраций.Тип_улицы",
-                     "Адрес_регистраций.Дом",
-                     "Адрес_регистраций.Корпус",
-                     "Адрес_регистраций.Квартира"]
+ADRESS_REG_LABELS = ["Адрес_регистрации.Индекс",
+                     "Адрес_регистрации.Регион", "Адрес_регистрации.Тип_региона",
+                     "Адрес_регистрации.Район", "Адрес_регистрации.Тип_района",
+                     "Адрес_регистрации.Город", "Адрес_регистрации.Тип_города",
+                     "Адрес_регистрации.Населенный_пункт", "Адрес_регистрации.Тип_населенного_пункта",
+                     "Адрес_регистрации.Улица", "Адрес_регистрации.Тип_улицы",
+                     "Адрес_регистрации.Дом",
+                     "Адрес_регистрации.Корпус",
+                     "Адрес_регистрации.Квартира"]
 
 ADRESS_LIVE_LABELS = ["Адрес_проживания.Индекс",
                       "Адрес_проживания.Регион", "Адрес_проживания.Тип_региона",
@@ -63,6 +63,8 @@ ADRESS_LIVE_LABELS = ["Адрес_проживания.Индекс",
 
 PHONES_LABELS = ["Телефон.Мобильный", "Телефон.Родственников", "Телефон.Домашний"]
 
+TECH_LABELS = ["Агент_Ид", "Подписант_Ид", "Пред_Страховщик_Ид"]
+
 #------------------------Отключил MANIPULATE_LABELS------------------------------------------------------------
 # FIELDS_IN_RESULT_TABLE_COMPLETE = [SNILS_LABEL, FIO_LABELS, FIO_BIRTH_LABELS, GENDER_LABEL, DATE_BIRTH_LABEL,
 #                                   PLACE_BIRTH_LABELS, PASSPORT_DATA_LABELS, ADRESS_REG_LABELS, ADRESS_LIVE_LABELS,
@@ -71,7 +73,7 @@ PHONES_LABELS = ["Телефон.Мобильный", "Телефон.Родст
 
 FIELDS_IN_RESULT_TABLE_COMPLETE = [SNILS_LABEL, FIO_LABELS, FIO_BIRTH_LABELS, GENDER_LABEL, DATE_BIRTH_LABEL,
                                    PLACE_BIRTH_LABELS, PASSPORT_DATA_LABELS, ADRESS_REG_LABELS, ADRESS_LIVE_LABELS,
-                                   PHONES_LABELS]
+                                   PHONES_LABELS, TECH_LABELS, MANIPULATE_LABELS]
 
 HEAD_RESULT_EXCEL_FILE = ['СНИЛС',
                           'Фамилия', 'Имя', 'Отчество',
@@ -211,7 +213,7 @@ class Ui_MainWindow(QMainWindow):
                 self.combobox_table_result.addItem(name)
         items.append(self.combobox_table_result)
         if combo1index != -1:
-            self.combobox_table_result.setCurrentIndex(combo1index)                 # combobox_table_result - первый комбобокс
+            self.combobox_table_result.setCurrentIndex(combo1index)          # combobox_table_result - первый комбобокс
         name_combobox_table_result = "combobox_table_result_{0}".format(self.tableWidget.rowCount() - 1)
         self.combobox_table_result.setObjectName(name_combobox_table_result)
 
@@ -222,7 +224,7 @@ class Ui_MainWindow(QMainWindow):
             self.combobox_table_from.addItem(name)
         items.append(self.combobox_table_from)
         if combo2index != -1:
-            self.combobox_table_from.setCurrentIndex(combo2index)                # combobox_table_from - второй комбобокс
+            self.combobox_table_from.setCurrentIndex(combo2index)              # combobox_table_from - второй комбобокс
         name_combobox_table_from = "combobox_table_from_{0}".format(self.tableWidget.rowCount() - 1)
         self.combobox_table_from.setObjectName(name_combobox_table_from)
 
@@ -305,21 +307,20 @@ class Ui_MainWindow(QMainWindow):
         mass = []
         try:
             cname = fname[0:fname.rfind('xlsx')]+ 'cfg'
-            conf_file = open(cname,'rt',encoding='utf-8')
-            conf_file_string = conf_file.read()
+#            conf_file = open(cname,'rt',encoding='utf-8')
+#            conf_file_string = conf_file.read()
             for j in range(self.tableWidget.rowCount()):
                 self.tableWidget.removeRow(0)
 
-            st = ''
-            for ch in conf_file_string:                                             # заполняем conf_mass из файла cfg
-                if ch != '\n':
-                    st = st + ch
-                else:
-                    if st != '':
-                        conf_mass.append(int(st))
-                    st = ''
-            if st!='':
-                conf_mass.append(int(st))
+            st = []
+            with open(cname, 'rt', encoding='utf-8', buffering=1) as conf_file:       # заполняем conf_mass из файла cfg
+                for iq, line in enumerate(conf_file):
+                    st = line.split()
+                    if len(st) > 1:
+                        st_i = []
+                        for il,zl in enumerate(st):
+                            st_i.append(int(zl))
+                        conf_mass.append(st_i)
             conf_file.close()
             use_config = True
         except FileNotFoundError as f:
@@ -331,13 +332,17 @@ class Ui_MainWindow(QMainWindow):
 
         for i, j in enumerate(mass):
             if i < len(conf_mass) and use_config:
-                if conf_mass[i] < len(mass):
-                    ii = conf_mass[i]
+#                if len(conf_mass[i]) < len(mass):
+                if len(conf_mass[i]) > 1:
+                    i1 = conf_mass[i][0]
+                    i2 = conf_mass[i][1]
                 else:
-                    ii = i                                          # по умолчанию
+                    i1 = i                                          # по умолчанию
+                    i2 = i
             else:
-                ii = i                                              # по умолчанию
-            self.add_table_row(i,ii)                                # добавил ii
+                i1 = i                                              # по умолчанию
+                i2 = i
+            self.add_table_row(i1, i2)                              # заполняем табличку
 
     def get_head_excel_file(self, path, sheet_number=0):
         wb = openpyxl.load_workbook(filename=path, read_only=True)
@@ -397,7 +402,8 @@ class WorkerThread(QThread):
         cname = 'new_' + fname[0:fname.rfind('xlsx')]+ 'cfg'
         conf_file = open(cname,'wt',encoding='utf-8')
         for i in range(self.tableWidget.rowCount()):
-            conf_file.write(str(self.tableWidget.cellWidget(i,1).currentIndex()) + '\n')
+            conf_file.write(str(self.tableWidget.cellWidget(i,0).currentIndex()) + ' ' +
+                            str(self.tableWidget.cellWidget(i,1).currentIndex()) + '\n')
         conf_file.close()
 
         wb_err = Workbook(write_only=True)
@@ -464,11 +470,11 @@ class WorkerThread(QThread):
 
                     if label0 in MANIPULATE_LABELS:
 
-                        if label0 in ["ФИО_из_поля", "ФИО_при_рождений_из_поля"]:
+                        if label0 in [MANIPULATE_LABELS[1], MANIPULATE_LABELS[3]]:
                             FIO = norm.field2fio(row_item)
-                            if label0 == "ФИО_из_поля":
+                            if label0 == MANIPULATE_LABELS[1]:
                                 lab = FIO_LABELS
-                            elif label0 == "ФИО_при_рождений_из_поля":
+                            elif label0 == MANIPULATE_LABELS[3]:
                                 lab = FIO_BIRTH_LABELS
                             for j in range(len(FIO)):
                                 result_row[lab[j]] = FIO[j]
