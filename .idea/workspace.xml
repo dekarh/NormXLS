@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a1775570-a7a5-488a-a409-513c409cd0ec" name="Default" comment="NormalizeFields.py:&#10;    Привел к FEMALE_GENDER_VALUE процедуру normalize_gender()&#10;NormXLS.py:&#10;    Исправил опечатки в MANIPULATE_LABELS&#10;    Добавил технические поля (TECH_LABELS) в FIELDS_IN_RESULT_TABLE_COMPLETE&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+    <list default="true" id="a1775570-a7a5-488a-a409-513c409cd0ec" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="b.iws" />
@@ -308,7 +307,14 @@
       <option name="project" value="LOCAL" />
       <updated>1486723805369</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Сохранение PyCharm&#10;">
+      <created>1486723851413</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1486723851413</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -370,7 +376,8 @@
     <MESSAGE value="NormalizeFields.py:&#10;    Привел к FEMALE_GENDER_VALUE процедуру normalize_gender()&#10;NormXLS.py:&#10;    Исправил опечатки в MANIPULATE_LABELS&#10;    Добавил технические поля (TECH_LABELS) в FIELDS_IN_RESULT_TABLE_COMPLETE&#10;" />
     <MESSAGE value="NormalizeFields.py:&#10;    Привел к FEMALE_GENDER_VALUE процедуру normalize_gender()    &#10;NormXLS.py:&#10;    Исправил опечатки в MANIPULATE_LABELS&#10;    Добавил технические поля (TECH_LABELS) в FIELDS_IN_RESULT_TABLE_COMPLETE&#10;    &#10;" />
     <MESSAGE value="Отладил использование &quot;ФИО_из_поля&quot; и &quot;ФИО_при_рождении_из_поля&quot;&#10;Исправил синт. ошибки в FIO_BIRTH_LABELS и ADRESS_REG_LABELS&#10;Добавил TECH_LABELS&#10;Включил MANIPULATE_LABELS&#10;Переделал cfg файл для хранения двух столбцов, new_ .cfg  &#10;Исправил прямое использование  на использование константы MANIPULATE_LABELS[1], MANIPULATE_LABELS[3]&#10;&#10; &#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Отладил использование &quot;ФИО_из_поля&quot; и &quot;ФИО_при_рождении_из_поля&quot;&#10;Исправил синт. ошибки в FIO_BIRTH_LABELS и ADRESS_REG_LABELS&#10;Добавил TECH_LABELS&#10;Включил MANIPULATE_LABELS&#10;Переделал cfg файл для хранения двух столбцов, new_ .cfg  &#10;Исправил прямое использование  на использование константы MANIPULATE_LABELS[1], MANIPULATE_LABELS[3]&#10;&#10; &#10;" />
+    <MESSAGE value="Сохранение PyCharm&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Сохранение PyCharm&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
