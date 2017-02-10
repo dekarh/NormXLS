@@ -26,18 +26,20 @@ ERROR_VALUE = 'ERROR'
 
 ########################################################################################################################
 # СОКРАЩЕНИЯ ТИПОВ В АДРЕСЕ
-DISTRICT_TYPES = ['р-н']
+REG_TYPES = ['обл', 'о', 'область', 'респ', 'республика', 'край', 'кр', 'ар', 'ао', 'авт']
 
-CITY_TYPES = ['г', 'п']
+DISTRICT_TYPES = ['р-н', 'р', 'район']
 
-NP_TYPES = ['пгт', 'рп', 'кп', 'к', 'пс', 'сс', 'смн', 'вл', 'дп', 'нп', 'пст', 'ж/д_ст', 'с', 'м',
-            'д', 'сл', 'ст', 'ст-ца', 'х', 'рзд', 'у', 'клх', 'свх', 'зим', 'мкр']
+CITY_TYPES = ['г', 'гор', 'город']
 
-STREET_TYPES = ['аллея', 'бульвар', 'б-р', 'в/ч', 'городок', 'гск', 'кв-л', 'линия', 'наб', 'пер', 'переезд', 'пл',
+NP_TYPES = ['пгт', 'пос', 'поселение', 'поселок', 'посёлок', 'п', 'рп', 'кп', 'к', 'пс', 'сс', 'смн', 'вл', 'дп',
+            'нп', 'пст', 'ж/д_ст', 'с', 'м', 'д', 'дер', 'сл', 'ст', 'ст-ца', 'х', 'рзд', 'у', 'клх', 'свх', 'зим', 'мкр']
+
+STREET_TYPES = ['аллея', 'а', 'бульвар', 'б-р', 'в/ч', 'городок', 'гск', 'кв-л', 'линия', 'наб', 'пер', 'переезд', 'пл',
                 'пр-кт', 'проезд', 'тер', 'туп', 'ул', 'ш', ]
 
-HOUSE_CUT_NAME = ['дом', 'д.', 'д']
-CORPUS_CUT_NAME = ['корпус', 'корп', ]
+HOUSE_CUT_NAME = ['дом', 'д']
+CORPUS_CUT_NAME = ['корпус', 'корп', 'к' ]
 APARTMENT_CUT_NAME = ['кв']
 ########################################################################################################################
 # ЗНАЧЕНИЕ В ПОЛЕ "ПОЛ" В ИСХОДНОМ ФАЙЛЕ
@@ -116,8 +118,29 @@ def field2fio(field):
             third_name = third_name[:-1]
         return first_name, second_name, third_name
     else:
-        return ERROR_VALUE
+        return NEW_NULL_VALUE_FOR_ALL_TEXT
 
+def field2addr(field):
+    addr_name, addr_type = '', ''
+    if len(field) > 0 and field != NULL_VALUE:
+        new_field = ''
+        for i, ch in enumerate(field):          # убираем точки и запятые
+            if ch == '.' or ch == ',':
+                ch = ''
+            new_field = new_field + ch
+        field = new_field.strip().split(' ')
+        TYPES = [REG_TYPES, DISTRICT_TYPES, CITY_TYPES, NP_TYPES, STREET_TYPES]
+        for i, word in enumerate(field):
+            addr_type_vrem = ''
+            for l in TYPES:
+                for ll in l:
+                    if word.lower() == ll.lower():
+                        addr_type_vrem = ll
+            if addr_type_vrem == '':
+                addr_name = addr_name + ' ' + word
+            else:
+                addr_type = addr_type_vrem
+    return addr_name, addr_type
 
 #class Gender(BaseClass):
 #    def __init__(self, third_name='', gender_field_exists=False, gender=''):
@@ -327,69 +350,70 @@ def normalize_home(tx):
             return tx
 
 
-#class FullAdress(BaseClass):
-#    def __init__(self, field=''):
-#        self.field = str(field)
-#        self.full_adress = []
-#        self.FULL_ADRESS_DICT = {}
-#        for label in FULL_ADRESS_LABELS:
-#            self.FULL_ADRESS_DICT[label] = ''
-#        self.iter_types = [DISTRICT_TYPES, CITY_TYPES, NP_TYPES, STREET_TYPES, HOUSE_CUT_NAME, CORPUS_CUT_NAME, APARTMENT_CUT_NAME]
+class FullAdress(BaseClass):
+    def __init__(self, field=''):
+        self.field = str(field)
+        self.full_adress = []
+        self.FULL_ADRESS_DICT = {}
+        for label in FULL_ADRESS_LABELS:
+            self.FULL_ADRESS_DICT[label] = ''
+        self.iter_types = [DISTRICT_TYPES, CITY_TYPES, NP_TYPES, STREET_TYPES, HOUSE_CUT_NAME, CORPUS_CUT_NAME, APARTMENT_CUT_NAME]
 
-#    def normalize_adress(self):
-#        if len(self.field) != 0 and self.field != NULL_VALUE:
-#            self.field = self.field.lower()
-#            values = self.field.split(',')
-#            for i, word in enumerate(values):
-#                n = []
-#                word = word.strip()
-#                if i == 0:
-#                    n = [char for char in word if char in string.digits]
-#                    if len(n) != 6:
-#                        return ERROR_VALUE
-#                    self.FULL_ADRESS_DICT[FULL_ADRESS_LABELS[0]] = ''.join(n)
-#                    continue
-#                elif i == 1:
-#                    self.FULL_ADRESS_DICT[FULL_ADRESS_LABELS[1]] = ' '.join(word.split(' ')[:-1])
-#                    self.FULL_ADRESS_DICT[FULL_ADRESS_LABELS[2]] = word.split(' ')[-1]
-#                    continue
-#                else:
-#                    for j, types in enumerate(self.iter_types):
-#                        if j < 4:
-#                            if word.split(' ')[-1] in types:
-#                                self.FULL_ADRESS_DICT[FULL_ADRESS_LABELS[3 + 2 * j]] = ' '.join(word.split(' ')[:-1])
-#                                self.FULL_ADRESS_DICT[FULL_ADRESS_LABELS[3 + 2 * j + 1]] = word.split(' ')[-1]
-#                        elif j >= 4:
-#                            for type in types:
-#                                if word.find(type) != (-1):
-#                                    word = word.replace(type, '').replace('.', '')
-#                                    self.FULL_ADRESS_DICT[FULL_ADRESS_LABELS[11+j-4]] = word
-#            return self.FULL_ADRESS_DICT
-#        else:
-#            if self.field == NULL_VALUE:
-#                return NEW_NULL_VALUE
-#            else:
+    def normalize_adress(self):
+        if len(self.field) != 0 and self.field != NULL_VALUE:
+            self.field = self.field.lower()
+            values = self.field.split(',')
+            for i, word in enumerate(values):
+                n = []
+                word = word.strip()
+                if i == 0:
+                    n = [char for char in word if char in string.digits]
+                    if len(n) != 6:
+                        return ERROR_VALUE
+                    self.FULL_ADRESS_DICT[FULL_ADRESS_LABELS[0]] = ''.join(n)
+                    continue
+                elif i == 1:
+                    self.FULL_ADRESS_DICT[FULL_ADRESS_LABELS[1]] = ' '.join(word.split(' ')[:-1])
+                    self.FULL_ADRESS_DICT[FULL_ADRESS_LABELS[2]] = word.split(' ')[-1]
+                    continue
+                else:
+                    for j, types in enumerate(self.iter_types):
+                        if j < 4:
+                            if word.split(' ')[-1] in types:
+                                self.FULL_ADRESS_DICT[FULL_ADRESS_LABELS[3 + 2 * j]] = ' '.join(word.split(' ')[:-1])
+                                self.FULL_ADRESS_DICT[FULL_ADRESS_LABELS[3 + 2 * j + 1]] = word.split(' ')[-1]
+                        elif j >= 4:
+                            for type in types:
+                                if word.find(type) != (-1):
+                                    word = word.replace(type, '').replace('.', '')
+                                    self.FULL_ADRESS_DICT[FULL_ADRESS_LABELS[11+j-4]] = word
+            return self.FULL_ADRESS_DICT
+        else:
+            if self.field == NULL_VALUE:
+                return NEW_NULL_VALUE
+            else:
+                return NEW_NULL_VALUE
 #                return ERROR_VALUE
 
-#    def create_output_list(self):
-#        if self.field != '':
-#            FULL_ADRESS_DICT = self.normalize_adress()
-#        for label in FULL_ADRESS_LABELS:
-#            self.full_adress.append(self.FULL_ADRESS_DICT[label].upper())
-#        return self.full_adress
+    def create_output_list(self):
+        if self.field != '':
+            FULL_ADRESS_DICT = self.normalize_adress()
+        for label in FULL_ADRESS_LABELS:
+            self.full_adress.append(self.FULL_ADRESS_DICT[label].upper())
+        return self.full_adress
 
-#    def get_values(self):
-#        output_list = []
-#        for elem in self.create_output_list():
-#            output_list.append(elem.strip())
-#        return output_list
+    def get_values(self):
+        output_list = []
+        for elem in self.create_output_list():
+            output_list.append(elem.strip())
+        return output_list
 
-#    # def __call__(self, *args, **kwargs):
-#    #     return self.create_output_list()
+    # def __call__(self, *args, **kwargs):
+    #     return self.create_output_list()
 
 
-## f = FullAdress('123592, Москва г, строгинский бульвар, д. 26, корпус 2, кв. 425')
-## print(f.get_values())
+# f = FullAdress('123592, Москва г, строгинский бульвар, д. 26, корпус 2, кв. 425')
+# print(f.get_values())
 
 
 class Phone(BaseClass):

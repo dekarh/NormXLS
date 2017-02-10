@@ -20,16 +20,28 @@ import NormalizeFields as norm
 from functools import partial
 
 MANIPULATE_LABELS = ["-------------------------"
-                     , "ФИО_из_поля"
+                     , "ФИО из поля"
                      , "-------------------------"
-                     , "ФИО_при_рождении_из_поля"
+                     , "ФИО при рождении из поля"
                      , "-------------------------"
+                     , "Регистрация -> Регион"
+                     , "Регистрация -> Район"
+                     , "Регистрация -> Город"
+                     , "Регистрация -> Населенный_пункт"
+                     , "Регистрация -> Улица"
+                     , "-------------------------"
+                     , "Проживание -> Регион"
+                     , "Проживание -> Район"
+                     , "Проживание -> Город"
+                     , "Проживание -> Населенный_пункт"
+                     , "Проживание -> Улица"
+                     , "-------------------------"
+                     , "Адрес регистрации из_поля"
+                     , "-------------------------"
+                     , "Адрес проживания из поля"
+#                     , "-------------------------"
 #                     , "Пол_получить_из_ФИО"
 #                     , "Пол_подставить_свои_значения"
-#                     , "-------------------------"
-#                     , "Адрес_регистрации_из_поля"
-#                     , "-------------------------"
-#                     , "Адрес_проживания_из_поля"
                      ]
 
 SNILS_LABEL = ["СНИЛС"]
@@ -489,18 +501,76 @@ class WorkerThread(QThread):
     #                        gender = norm.Gender(FIO[2], gender_field_exists=True, gender=row_item) ## !!!!!!!!!!!!!!
     #                        result_row[GENDER_LABEL[0]] = gender.get_value()
     #------------------------------------------------------- Убрал класс Gender --------------------------------------
-
-    #------------------------------------------------------- Убрал класс FullAdress ----------------------------------
-    #                    elif label0 == "Адрес_регистраций_из_поля":
-    #                        adress_reg = norm.FullAdress(row_item)
-    #                        for z, cell in enumerate(adress_reg.get_values()):
-    #                            result_row[ADRESS_REG_LABELS[z]] = cell
-
-    #                    elif label0 == "Адрес_проживания_из_поля":
-    #                        adress_zhit = norm.FullAdress(row_item)
-    #                        for z, cell in enumerate(adress_zhit.get_values()):
-    #                            result_row[ADRESS_LIVE_LABELS[z]] = cell
-    #------------------------------------------------------- Убрал класс FullAdress ----------------------------------
+                        elif label0 == MANIPULATE_LABELS[5]:                        # Регистрация -> Регион
+                            addr = norm.field2addr(row_item)
+                            lab = [ADRESS_REG_LABELS[1], ADRESS_REG_LABELS[2]]
+                            for j in range(len(addr)):
+                                result_row[lab[j]] = addr[j]
+# Регистрация -> Район
+                        elif label0 == MANIPULATE_LABELS[6]:
+                            addr = norm.field2addr(row_item)
+                            lab = [ADRESS_REG_LABELS[3], ADRESS_REG_LABELS[4]]
+                            for j in range(len(addr)):
+                                result_row[lab[j]] = addr[j]
+# Регистрация -> Город
+                        elif label0 == MANIPULATE_LABELS[7]:
+                            addr = norm.field2addr(row_item)
+                            lab = [ADRESS_REG_LABELS[5], ADRESS_REG_LABELS[6]]
+                            for j in range(len(addr)):
+                                result_row[lab[j]] = addr[j]
+# Регистрация -> Населенный_пункт
+                        elif label0 == MANIPULATE_LABELS[8]:
+                            addr = norm.field2addr(row_item)
+                            lab = [ADRESS_REG_LABELS[7], ADRESS_REG_LABELS[8]]
+                            for j in range(len(addr)):
+                                result_row[lab[j]] = addr[j]
+# Регистрация -> Улица
+                        elif label0 == MANIPULATE_LABELS[9]:
+                            addr = norm.field2addr(row_item)
+                            lab = [ADRESS_REG_LABELS[9], ADRESS_REG_LABELS[10]]
+                            for j in range(len(addr)):
+                                result_row[lab[j]] = addr[j]
+# ADRESS_LIVE_LABELS
+# Проживание -> Регион
+                        elif label0 == MANIPULATE_LABELS[11]:
+                            addr = norm.field2addr(row_item)
+                            lab = [ADRESS_LIVE_LABELS[1], ADRESS_LIVE_LABELS[2]]
+                            for j in range(len(addr)):
+                                result_row[lab[j]] = addr[j]
+# Проживание -> Район
+                        elif label0 == MANIPULATE_LABELS[12]:
+                            addr = norm.field2addr(row_item)
+                            lab = [ADRESS_LIVE_LABELS[3], ADRESS_LIVE_LABELS[4]]
+                            for j in range(len(addr)):
+                                result_row[lab[j]] = addr[j]
+# Проживание -> Город
+                        elif label0 == MANIPULATE_LABELS[13]:
+                            addr = norm.field2addr(row_item)
+                            lab = [ADRESS_LIVE_LABELS[5], ADRESS_LIVE_LABELS[6]]
+                            for j in range(len(addr)):
+                                result_row[lab[j]] = addr[j]
+# Проживание -> Населенный_пункт
+                        elif label0 == MANIPULATE_LABELS[14]:
+                            addr = norm.field2addr(row_item)
+                            lab = [ADRESS_LIVE_LABELS[7], ADRESS_LIVE_LABELS[8]]
+                            for j in range(len(addr)):
+                                result_row[lab[j]] = addr[j]
+# Проживание -> Улица
+                        elif label0 == MANIPULATE_LABELS[15]:
+                            addr = norm.field2addr(row_item)
+                            lab = [ADRESS_LIVE_LABELS[9], ADRESS_LIVE_LABELS[10]]
+                            for j in range(len(addr)):
+                                result_row[lab[j]] = addr[j]
+#Адрес регистрации из_поля
+                        elif label0 == MANIPULATE_LABELS[17]:
+                            adress_reg = norm.FullAdress(row_item)
+                            for z, cell in enumerate(adress_reg.get_values()):
+                                result_row[ADRESS_REG_LABELS[z]] = cell
+# Адрес проживания из поля
+                        elif label0 == MANIPULATE_LABELS[19]:
+                            adress_zhit = norm.FullAdress(row_item)
+                            for z, cell in enumerate(adress_zhit.get_values()):
+                                result_row[ADRESS_LIVE_LABELS[z]] = cell
 
                     elif label0 == '-------------------------':
                         continue
