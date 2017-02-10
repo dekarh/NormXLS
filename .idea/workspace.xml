@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a1775570-a7a5-488a-a409-513c409cd0ec" name="Default" comment="">
+    <list default="true" id="a1775570-a7a5-488a-a409-513c409cd0ec" name="Default" comment="NormalizeFields.py:&#10;    Привел к FEMALE_GENDER_VALUE процедуру normalize_gender()&#10;NormXLS.py:&#10;    Исправил опечатки в MANIPULATE_LABELS&#10;    Добавил технические поля (TECH_LABELS) в FIELDS_IN_RESULT_TABLE_COMPLETE&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NormXLS.py" afterPath="$PROJECT_DIR$/NormXLS.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NormalizeFields.py" afterPath="$PROJECT_DIR$/NormalizeFields.py" />
     </list>
     <ignored path="b.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,10 +30,11 @@
       <file leaf-file-name="NormXLS.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/NormXLS.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-780">
-              <caret line="29" column="49" lean-forward="true" selection-start-line="29" selection-start-column="49" selection-end-line="29" selection-end-column="49" />
+            <state relative-caret-position="3317">
+              <caret line="372" column="24" lean-forward="false" selection-start-line="372" selection-start-column="16" selection-end-line="372" selection-end-column="24" />
               <folding>
                 <element signature="e#175#185#0" expanded="true" />
+                <element signature="e#15533#15591#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -44,8 +43,8 @@
       <file leaf-file-name="NormalizeFields.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NormalizeFields.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1749">
-              <caret line="184" column="13" lean-forward="false" selection-start-line="184" selection-start-column="13" selection-end-line="184" selection-end-column="13" />
+            <state relative-caret-position="-3300">
+              <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
               <folding>
                 <element signature="e#2486#2499#0" expanded="true" />
               </folding>
@@ -63,6 +62,7 @@
       <find>mass_result</find>
       <find>aa_num</find>
       <find>aa_str</find>
+      <find>sys.argv</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -82,7 +82,7 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="824" />
+    <option name="x" value="821" />
     <option name="y" value="52" />
     <option name="width" value="1086" />
     <option name="height" value="1028" />
@@ -108,9 +108,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../NormalizeExcelFile" />
   </component>
-  <component name="RunManager" selected="Python.ui">
+  <component name="RunManager" selected="Python.NormXLS">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -251,7 +251,7 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="ui" type="PythonConfigurationType" factoryName="Python">
+    <configuration default="false" name="NormXLS" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -265,12 +265,12 @@
       <module name="b" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/NormXLS.py" />
-      <option name="PARAMETERS" value="05c2.xlsx" />
+      <option name="PARAMETERS" value="adekta.xlsx" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
     <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="Python.ui" />
+      <item index="0" class="java.lang.String" itemvalue="Python.NormXLS" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
@@ -287,10 +287,32 @@
       <option name="presentableId" value="Default" />
       <updated>1480341105625</updated>
     </task>
+    <task id="LOCAL-00001" summary="NormalizeFields.py:&#10;    Привел к FEMALE_GENDER_VALUE процедуру normalize_gender()&#10;NormXLS.py:&#10;    Исправил опечатки в MANIPULATE_LABELS&#10;    Добавил технические поля (TECH_LABELS) в FIELDS_IN_RESULT_TABLE_COMPLETE&#10;">
+      <created>1486711923386</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1486711923386</updated>
+    </task>
+    <task id="LOCAL-00002" summary="NormalizeFields.py:&#10;    Привел к FEMALE_GENDER_VALUE процедуру normalize_gender()    &#10;NormXLS.py:&#10;    Исправил опечатки в MANIPULATE_LABELS&#10;    Добавил технические поля (TECH_LABELS) в FIELDS_IN_RESULT_TABLE_COMPLETE&#10;    &#10;">
+      <created>1486722342222</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1486722342222</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Отладил использование &quot;ФИО_из_поля&quot; и &quot;ФИО_при_рождении_из_поля&quot;&#10;Исправил синт. ошибки в FIO_BIRTH_LABELS и ADRESS_REG_LABELS&#10;Добавил TECH_LABELS&#10;Включил MANIPULATE_LABELS&#10;Переделал cfg файл для хранения двух столбцов, new_ .cfg  &#10;Исправил прямое использование  на использование константы MANIPULATE_LABELS[1], MANIPULATE_LABELS[3]&#10;&#10; &#10;">
+      <created>1486723805369</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1486723805369</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="824" y="52" width="1086" height="1028" extended-state="4" />
+    <frame x="821" y="52" width="1086" height="1028" extended-state="4" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19915254" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -298,21 +320,39 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32948583" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32725322" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41028333" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32725322" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32939914" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4104712" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -325,15 +365,15 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
+    <MESSAGE value="NormalizeFields.py:&#10;    Привел к FEMALE_GENDER_VALUE процедуру normalize_gender()&#10;NormXLS.py:&#10;    Исправил опечатки в MANIPULATE_LABELS&#10;    Добавил технические поля (TECH_LABELS) в FIELDS_IN_RESULT_TABLE_COMPLETE&#10;" />
+    <MESSAGE value="NormalizeFields.py:&#10;    Привел к FEMALE_GENDER_VALUE процедуру normalize_gender()    &#10;NormXLS.py:&#10;    Исправил опечатки в MANIPULATE_LABELS&#10;    Добавил технические поля (TECH_LABELS) в FIELDS_IN_RESULT_TABLE_COMPLETE&#10;    &#10;" />
+    <MESSAGE value="Отладил использование &quot;ФИО_из_поля&quot; и &quot;ФИО_при_рождении_из_поля&quot;&#10;Исправил синт. ошибки в FIO_BIRTH_LABELS и ADRESS_REG_LABELS&#10;Добавил TECH_LABELS&#10;Включил MANIPULATE_LABELS&#10;Переделал cfg файл для хранения двух столбцов, new_ .cfg  &#10;Исправил прямое использование  на использование константы MANIPULATE_LABELS[1], MANIPULATE_LABELS[3]&#10;&#10; &#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Отладил использование &quot;ФИО_из_поля&quot; и &quot;ФИО_при_рождении_из_поля&quot;&#10;Исправил синт. ошибки в FIO_BIRTH_LABELS и ADRESS_REG_LABELS&#10;Добавил TECH_LABELS&#10;Включил MANIPULATE_LABELS&#10;Переделал cfg файл для хранения двух столбцов, new_ .cfg  &#10;Исправил прямое использование  на использование константы MANIPULATE_LABELS[1], MANIPULATE_LABELS[3]&#10;&#10; &#10;" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/NormXLS.py</url>
-          <line>335</line>
-          <option name="timeStamp" value="272" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -341,11 +381,13 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="273" />
+      <option name="time" value="279" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
         <watch expression="mass[num]" language="Python" />
+        <watch expression="len(st)" language="Python" />
+        <watch expression="len(conf_mass[i])" language="Python" />
       </configuration>
     </watches-manager>
   </component>
@@ -524,8 +566,8 @@
     <entry file="file://$PROJECT_DIR$/ui.py" />
     <entry file="file://$PROJECT_DIR$/NormalizeFields.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1749">
-          <caret line="184" column="13" lean-forward="false" selection-start-line="184" selection-start-column="13" selection-end-line="184" selection-end-column="13" />
+        <state relative-caret-position="-3300">
+          <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
           <folding>
             <element signature="e#2486#2499#0" expanded="true" />
           </folding>
@@ -534,10 +576,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/NormXLS.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-780">
-          <caret line="29" column="49" lean-forward="true" selection-start-line="29" selection-start-column="49" selection-end-line="29" selection-end-column="49" />
+        <state relative-caret-position="3317">
+          <caret line="372" column="24" lean-forward="false" selection-start-line="372" selection-start-column="16" selection-end-line="372" selection-end-column="24" />
           <folding>
             <element signature="e#175#185#0" expanded="true" />
+            <element signature="e#15533#15591#0" expanded="false" />
           </folding>
         </state>
       </provider>
