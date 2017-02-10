@@ -41,8 +41,8 @@ CORPUS_CUT_NAME = ['корпус', 'корп', ]
 APARTMENT_CUT_NAME = ['кв']
 ########################################################################################################################
 # ЗНАЧЕНИЕ В ПОЛЕ "ПОЛ" В ИСХОДНОМ ФАЙЛЕ
-FEMALE_GENDER_VALUE = '1'
-MALE_GENDER_VALUE = '0'
+FEMALE_GENDER_VALUE = 'Ж'
+MALE_GENDER_VALUE = 'М'
 
 ########################################################################################################################
 # ИМЕНА ДЛЯ КЛЮЧЕЙ СЛОВАРЕЙ И ДЛЯ ПОРЯДКА ВЫВОД СЛОВАРЯ
@@ -177,10 +177,10 @@ def normalize_gender(gender):
     gender = str(gender).strip()
     if gender =='':
         return NEW_NULL_VALUE_FOR_GENDER
-    elif len(gender) > 1 and (gender[0]!='1' or gender[0]!='0'):
+    elif len(gender) > 1 and (gender.strip()!=FEMALE_GENDER_VALUE or gender.strip()!=MALE_GENDER_VALUE):
         return NEW_NULL_VALUE_FOR_GENDER
     else:
-        if gender[0] == '0':
+        if gender.strip() == FEMALE_GENDER_VALUE:
             return '1'
         else:
             return '0'
