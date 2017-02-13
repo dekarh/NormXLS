@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-__author__ = 'Nurzhanov Edward'
 
 LEN_SNILS = 11
 LEN_PASSPORT_NOMER = 6
