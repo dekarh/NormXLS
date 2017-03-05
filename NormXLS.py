@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-__author__ = 'Nurzhanov Edward'
 
 # Form implementation generated from reading ui file 'normalizefield.ui'
 #
@@ -174,7 +173,8 @@ class Ui_MainWindow(QMainWindow):
 
         self.retranslateUi(MainWindow)
 
-        self.Button_table_add.clicked.connect(self.add_table_row)
+#        self.Button_table_add.clicked.connect(self.add_table_row)    #!!!! Поменял пока глючит
+        self.Button_table_add.clicked.connect(self.FileChoise)
         self.Button_table_del.clicked.connect(self.del_table_row)
         self.Button_table_up.clicked.connect(partial(self.move_table_row, mode='up'))
         self.Button_table_down.clicked.connect(partial(self.move_table_row, mode='down'))
@@ -443,7 +443,7 @@ class WorkerThread(QThread):
             self.progress_value.emit(num_row + 1)  # отрисовываем ProgresBar
             if num_row == 0:
                 continue
-            i10 = int(num_row / 10000)
+            i10 = int(num_row / 1000000)
             if i10 > i10l:
                 i10l = i10
                 f = ui.fname.replace(ui.fname.split('/')[-1], '{0:02d}'.format(i10) + ui.fname.split('/')[-1])
@@ -475,7 +475,7 @@ class WorkerThread(QThread):
                                           or  row_item == 'заполнить' or row_item == '00.00.0000'\
                                           or row_item == '0000-00-00' or row_item == 'ERROR' \
                                           or row_item == '=#ССЫЛ!' or row_item == '#ССЫЛ!'\
-                                          or row_item == '=#REF!' or row_item == '#REF!':
+                                          or row_item == '=#REF!' or row_item == '#REF!' or row_item == '-':
                         row_item = ''
                     elif row_item == '0' and label0 != 'Пол':
                         row_item = ''
@@ -488,8 +488,12 @@ class WorkerThread(QThread):
                                 lab = FIO_LABELS
                             elif label0 == MANIPULATE_LABELS[3]:
                                 lab = FIO_BIRTH_LABELS
-                            for j in range(len(FIO)):
-                                result_row[lab[j]] = FIO[j]
+                            if row_item == '':
+                                for j in range(len(lab)):
+                                    result_row[lab[j]] = norm.NEW_NULL_VALUE_FOR_ALL_TEXT
+                            else:
+                                for j in range(len(FIO)):
+                                    result_row[lab[j]] = FIO[j]
                             continue
 
     #------------------------------------------------------- Убрал класс Gender --------------------------------------

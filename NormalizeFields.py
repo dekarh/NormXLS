@@ -38,7 +38,7 @@ STREET_TYPES = ['аллея', 'а', 'бульвар', 'б-р', 'в/ч', 'гор�
                 'пр-кт', 'проезд', 'тер', 'туп', 'ул', 'ш', ]
 
 HOUSE_CUT_NAME = ['дом', 'д']
-CORPUS_CUT_NAME = ['корпус', 'корп', 'к' ]
+CORPUS_CUT_NAME = ['корп', 'корпус']
 APARTMENT_CUT_NAME = ['кв']
 ########################################################################################################################
 # ЗНАЧЕНИЕ В ПОЛЕ "ПОЛ" В ИСХОДНОМ ФАЙЛЕ
@@ -368,7 +368,7 @@ class FullAdress(BaseClass):
                 if i == 0:
                     n = [char for char in word if char in string.digits]
                     if len(n) != 6:
-                        return ERROR_VALUE
+                        return NEW_NULL_VALUE_FOR_INDEX
                     self.FULL_ADRESS_DICT[FULL_ADRESS_LABELS[0]] = ''.join(n)
                     continue
                 elif i == 1:
