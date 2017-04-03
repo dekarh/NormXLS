@@ -25,6 +25,12 @@ ERROR_VALUE = 'ERROR'
 
 ########################################################################################################################
 # СОКРАЩЕНИЯ ТИПОВ В АДРЕСЕ
+SPLIT_FIELD = ','  # Разделитель для адреса в одной строке (бывает '_x0003_'
+
+# ORDER_FIELD = [13, 0, 8, 1, 9, 2, 10, 3, 11, 4, 12, 5, 6, 7] # См def FullAddress(get_values():
+# ['Индекс', 'Регион', 'Тип_региона', 'Район', 'Тип_района', 'Город', 'Тип_города',
+#  'Населенный_пункт', 'Тип_населенного_пункта', 'Улица', 'Тип_улицы', 'Дом', 'Корпус', 'Квартира']
+
 REG_TYPES = ['обл', 'о', 'область', 'респ', 'республика', 'край', 'кр', 'ар', 'ао', 'авт']
 
 DISTRICT_TYPES = ['р-н', 'р', 'район']
@@ -42,8 +48,8 @@ CORPUS_CUT_NAME = ['корп', 'корпус']
 APARTMENT_CUT_NAME = ['кв']
 ########################################################################################################################
 # ЗНАЧЕНИЕ В ПОЛЕ "ПОЛ" В ИСХОДНОМ ФАЙЛЕ
-FEMALE_GENDER_VALUE = 'Ж'
-MALE_GENDER_VALUE = 'М'
+FEMALE_GENDER_VALUE = '0'
+MALE_GENDER_VALUE = '1'
 
 ########################################################################################################################
 # ИМЕНА ДЛЯ КЛЮЧЕЙ СЛОВАРЕЙ И ДЛЯ ПОРЯДКА ВЫВОД СЛОВАРЯ
@@ -361,7 +367,7 @@ class FullAdress(BaseClass):
     def normalize_adress(self):
         if len(self.field) != 0 and self.field != NULL_VALUE:
             self.field = self.field.lower()
-            values = self.field.split(',')
+            values = self.field.split(SPLIT_FIELD)
             for i, word in enumerate(values):
                 n = []
                 word = word.strip()
@@ -379,33 +385,51 @@ class FullAdress(BaseClass):
                     for j, types in enumerate(self.iter_types):
                         if j < 4:
                             if word.split(' ')[-1] in types:
-                                self.FULL_ADRESS_DICT[FULL_ADRESS_LABELS[3 + 2 * j]] = ' '.join(word.split(' ')[:-1])
+                                self.FULL_ADRESS_DICT[FULL_ADRESS_LABELS[3 + 2 * j]] = ' '.join(
+                                    word.split(' ')[:-1])
                                 self.FULL_ADRESS_DICT[FULL_ADRESS_LABELS[3 + 2 * j + 1]] = word.split(' ')[-1]
                         elif j >= 4:
                             for type in types:
                                 if word.find(type) != (-1):
                                     word = word.replace(type, '').replace('.', '')
-                                    self.FULL_ADRESS_DICT[FULL_ADRESS_LABELS[11+j-4]] = word
+                                    self.FULL_ADRESS_DICT[FULL_ADRESS_LABELS[11 + j - 4]] = word
             return self.FULL_ADRESS_DICT
         else:
             if self.field == NULL_VALUE:
                 return NEW_NULL_VALUE
             else:
                 return NEW_NULL_VALUE
-#                return ERROR_VALUE
+                #                return ERROR_VALUE
 
-    def create_output_list(self):
+    def create_output_list(self):                   # Создаем список вывода
         if self.field != '':
             FULL_ADRESS_DICT = self.normalize_adress()
         for label in FULL_ADRESS_LABELS:
             self.full_adress.append(self.FULL_ADRESS_DICT[label].upper())
         return self.full_adress
 
-    def get_values(self):
+    def get_values(self):                           # Когда адрес г. Астрахань, ул. Такая, д. Т...
         output_list = []
         for elem in self.create_output_list():
             output_list.append(elem.strip())
         return output_list
+
+"""
+    def get_values(self):                           # Когда адрес Москва_x0003__x0003_Москва_x0003__x0003_Лобачевского...
+        output_list = []
+        if len(self.field) != 0 and self.field != NULL_VALUE:
+            self.field = self.field.lower()
+            values = self.field.split(SPLIT_FIELD)
+            for i, nn in enumerate(ORDER_FIELD):
+                if nn < len(values):
+                    output_list.append(values[nn])
+            return output_list
+        else:
+            if self.field == NULL_VALUE:
+                return NEW_NULL_VALUE
+            else:
+                return NEW_NULL_VALUE
+"""
 
     # def __call__(self, *args, **kwargs):
     #     return self.create_output_list()

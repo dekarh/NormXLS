@@ -505,7 +505,8 @@ class WorkerThread(QThread):
     #                        gender = norm.Gender(FIO[2], gender_field_exists=True, gender=row_item) ## !!!!!!!!!!!!!!
     #                        result_row[GENDER_LABEL[0]] = gender.get_value()
     #------------------------------------------------------- Убрал класс Gender --------------------------------------
-                        elif label0 == MANIPULATE_LABELS[5]:                        # Регистрация -> Регион
+# Регистрация -> Регион
+                        elif label0 == MANIPULATE_LABELS[5]:
                             addr = norm.field2addr(row_item)
                             lab = [ADRESS_REG_LABELS[1], ADRESS_REG_LABELS[2]]
                             for j in range(len(addr)):
@@ -651,6 +652,8 @@ class WorkerThread(QThread):
                             yum_phone2 = num
                         elif mass[num] == norm.ERROR_VALUE:
                             yum = False
+                    else:
+                        mass[num] = ''                # заполняем mass, чтобы его добавить как строку в xlsx
 
     #            yam = 0
     #            if len(phone.tel_mob) > 0:
