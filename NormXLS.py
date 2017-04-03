@@ -5,6 +5,7 @@
 # Created by: PyQt5 UI code generator 5.7
 
 import sys
+import string
 import openpyxl
 from openpyxl import Workbook
 from csv2xls import csv2xls
@@ -568,14 +569,23 @@ class WorkerThread(QThread):
                                 result_row[lab[j]] = addr[j]
 #Адрес регистрации из_поля
                         elif label0 == MANIPULATE_LABELS[17]:
+                            result_row[ADRESS_REG_LABELS[0]] = '111111'
                             adress_reg = norm.FullAdress(row_item)
                             for z, cell in enumerate(adress_reg.get_values()):
                                 result_row[ADRESS_REG_LABELS[z]] = cell
+                            n = [char for char in result_row[ADRESS_REG_LABELS[0]] if char in string.digits]
+                            if len(n) != 6:
+                                result_row[ADRESS_REG_LABELS[0]] = '111111'
+
 # Адрес проживания из поля
                         elif label0 == MANIPULATE_LABELS[19]:
+                            result_row[ADRESS_LIVE_LABELS[0]] = '111111'
                             adress_zhit = norm.FullAdress(row_item)
                             for z, cell in enumerate(adress_zhit.get_values()):
                                 result_row[ADRESS_LIVE_LABELS[z]] = cell
+                            n = [char for char in result_row[ADRESS_LIVE_LABELS[0]] if char in string.digits]
+                            if len(n) != 6:
+                                result_row[ADRESS_LIVE_LABELS[0]] = '111111'
 
                     elif label0 == '-------------------------':
                         continue

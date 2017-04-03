@@ -25,9 +25,10 @@ ERROR_VALUE = 'ERROR'
 
 ########################################################################################################################
 # СОКРАЩЕНИЯ ТИПОВ В АДРЕСЕ
-SPLIT_FIELD = ','  # Разделитель для адреса в одной строке (бывает '_x0003_'
+SPLIT_FIELD = ','
+#SPLIT_FIELD = '_x0003_'  # Разделитель для адреса в одной строке (бывает '_x0003_')
 
-# ORDER_FIELD = [13, 0, 8, 1, 9, 2, 10, 3, 11, 4, 12, 5, 6, 7] # См def FullAddress(get_values():
+#ORDER_FIELD = [13, 0, 8, 1, 9, 2, 10, 3, 11, 4, 12, 5, 6, 7] # См def FullAddress(get_values():
 # ['Индекс', 'Регион', 'Тип_региона', 'Район', 'Тип_района', 'Город', 'Тип_города',
 #  'Населенный_пункт', 'Тип_населенного_пункта', 'Улица', 'Тип_улицы', 'Дом', 'Корпус', 'Квартира']
 
@@ -408,14 +409,14 @@ class FullAdress(BaseClass):
             self.full_adress.append(self.FULL_ADRESS_DICT[label].upper())
         return self.full_adress
 
-    def get_values(self):                           # Когда адрес г. Астрахань, ул. Такая, д. Т...
+    def get_values(self):  # Когда адрес г. Астрахань, ул. Такая, д. Т...
         output_list = []
         for elem in self.create_output_list():
             output_list.append(elem.strip())
         return output_list
 
 """
-    def get_values(self):                           # Когда адрес Москва_x0003__x0003_Москва_x0003__x0003_Лобачевского...
+    def get_values(self):                           # Когда все поля по раздельности...
         output_list = []
         if len(self.field) != 0 and self.field != NULL_VALUE:
             self.field = self.field.lower()
@@ -430,6 +431,7 @@ class FullAdress(BaseClass):
             else:
                 return NEW_NULL_VALUE
 """
+
 
     # def __call__(self, *args, **kwargs):
     #     return self.create_output_list()
