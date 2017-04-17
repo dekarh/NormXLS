@@ -49,8 +49,8 @@ CORPUS_CUT_NAME = ['корп', 'корпус']
 APARTMENT_CUT_NAME = ['кв']
 ########################################################################################################################
 # ЗНАЧЕНИЕ В ПОЛЕ "ПОЛ" В ИСХОДНОМ ФАЙЛЕ
-FEMALE_GENDER_VALUE = '0'
-MALE_GENDER_VALUE = '1'
+FEMALE_GENDER_VALUE = 'Женский'
+MALE_GENDER_VALUE = 'Мужской'
 
 ########################################################################################################################
 # ИМЕНА ДЛЯ КЛЮЧЕЙ СЛОВАРЕЙ И ДЛЯ ПОРЯДКА ВЫВОД СЛОВАРЯ
@@ -206,7 +206,7 @@ def normalize_gender(gender):
     gender = str(gender).strip()
     if gender =='':
         return NEW_NULL_VALUE_FOR_GENDER
-    elif len(gender) > 1 and (gender.strip()!=FEMALE_GENDER_VALUE or gender.strip()!=MALE_GENDER_VALUE):
+    elif len(gender) > 1 and (gender.strip()!=FEMALE_GENDER_VALUE and gender.strip()!=MALE_GENDER_VALUE):
         return NEW_NULL_VALUE_FOR_GENDER
     else:
         if gender.strip() == FEMALE_GENDER_VALUE:
@@ -409,7 +409,7 @@ class FullAdress(BaseClass):
             self.full_adress.append(self.FULL_ADRESS_DICT[label].upper())
         return self.full_adress
 
-    def get_values(self):  # Когда адрес г. Астрахань, ул. Такая, д. Т...
+    def get_values(self):  # Когда адрес 414000, г. Астрахань, ул. Такая, д. Т...
         output_list = []
         for elem in self.create_output_list():
             output_list.append(elem.strip())
