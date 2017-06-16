@@ -189,7 +189,7 @@ class Ui_MainWindow(QMainWindow):
 #        self.FileChoise()                                              # попробовал - не работает
         self.Button_start.setEnabled(False)
         self.workerThread = WorkerThread(sheet=self.sheet,
-                                         tableWidget=self.tableWidget)  #####################################
+                                         tableWidget=self.tableWidget)  # <<<<<<<<<<<<<<<<<<<<<<<<<<<
         self.workerThread.progress_value.connect(self.updateProgressBar)
         self.workerThread.start()
         self.updateProgressBar(0)

@@ -49,8 +49,8 @@ CORPUS_CUT_NAME = ['корп', 'корпус']
 APARTMENT_CUT_NAME = ['кв']
 ########################################################################################################################
 # ЗНАЧЕНИЕ В ПОЛЕ "ПОЛ" В ИСХОДНОМ ФАЙЛЕ
-FEMALE_GENDER_VALUE = 'Женский'
-MALE_GENDER_VALUE = 'Мужской'
+FEMALE_GENDER_VALUE = 'Ж'
+MALE_GENDER_VALUE = 'М'
 
 ########################################################################################################################
 # ИМЕНА ДЛЯ КЛЮЧЕЙ СЛОВАРЕЙ И ДЛЯ ПОРЯДКА ВЫВОД СЛОВАРЯ
@@ -283,7 +283,7 @@ class Passport(BaseClass):
         if self.nomer != NULL_VALUE and self.nomer != '' and isinstance(self.seriya, str):
             try:
                 self.nomer = ''.join([char for char in self.nomer if char in string.digits])
-                if len(self.nomer) < LEN_PASSPORT_NOMER:
+                if len(self.nomer) < LEN_PASSPORT_NOMER and len(self.nomer) > 0 :
                     self.nomer = '0' * (LEN_PASSPORT_NOMER - len(self.nomer)) + self.nomer
                 elif len(self.nomer) == LEN_PASSPORT_NOMER:
                     pass
@@ -305,7 +305,7 @@ class Passport(BaseClass):
     def normalize_cod(self):
         if self.cod != NULL_VALUE and self.cod != '':
             self.cod = ''.join([char for char in self.cod if char in string.digits])
-            if len(self.cod) < LEN_PASSPORT_COD:
+            if len(self.cod) < LEN_PASSPORT_COD and len(self.cod) > 0:
                 self.cod = '0' * (LEN_PASSPORT_COD - len(self.cod)) + self.cod
             elif len(self.cod) == LEN_PASSPORT_COD:
                 pass
@@ -352,6 +352,8 @@ def normalize_home(tx):
         elif numbers:
             if int(tx) > 1500:
                 return NEW_NULL_VALUE_FOR_HOME
+            else:
+                return tx
         else:
             return tx
 
