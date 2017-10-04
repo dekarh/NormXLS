@@ -49,8 +49,8 @@ CORPUS_CUT_NAME = ['корп', 'корпус']
 APARTMENT_CUT_NAME = ['кв']
 ########################################################################################################################
 # ЗНАЧЕНИЕ В ПОЛЕ "ПОЛ" В ИСХОДНОМ ФАЙЛЕ
-FEMALE_GENDER_VALUE = 'Ж'
-MALE_GENDER_VALUE = 'М'
+FEMALE_GENDER_VALUE = 'Женский'
+MALE_GENDER_VALUE = 'Мужской'
 
 ########################################################################################################################
 # ИМЕНА ДЛЯ КЛЮЧЕЙ СЛОВАРЕЙ И ДЛЯ ПОРЯДКА ВЫВОД СЛОВАРЯ
@@ -417,7 +417,7 @@ class FullAdress(BaseClass):
             output_list.append(elem.strip())
         return output_list
 
-"""
+    a = """
     def get_values(self):                           # Когда все поля по раздельности...
         output_list = []
         if len(self.field) != 0 and self.field != NULL_VALUE:
@@ -432,7 +432,6 @@ class FullAdress(BaseClass):
                 return NEW_NULL_VALUE
             else:
                 return NEW_NULL_VALUE
-"""
 
 
     # def __call__(self, *args, **kwargs):
@@ -441,7 +440,7 @@ class FullAdress(BaseClass):
 
 # f = FullAdress('123592, Москва г, строгинский бульвар, д. 26, корпус 2, кв. 425')
 # print(f.get_values())
-
+    """
 
 class Phone(BaseClass):
     def __init__(self, tel_mob='', tel_rod='', tel_dom=''):
@@ -456,8 +455,10 @@ class Phone(BaseClass):
         tel = str(tel).strip()
         tel = ''.join([char for char in tel if char in string.digits])
         if len(tel) == 11:
-            if tel[0] in ['8', '9']:
+            if tel[0] in ['7', '8', '9']:
                 tel = '7' + tel[1:]
+            else:
+                return ERROR_VALUE
         elif len(tel) == 10:
             tel = '7' + tel
         else:

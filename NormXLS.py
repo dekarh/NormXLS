@@ -8,14 +8,14 @@ import sys
 import string
 import openpyxl
 from openpyxl import Workbook
-from csv2xls import csv2xls
+#from csv2xls import csv2xls
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import (QMainWindow, QFileDialog, QMessageBox, QTableWidgetItem, QComboBox)
 from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import QThread
-import xlrd
-import xlwt
+#import xlrd
+#import xlwt
 import NormalizeFields as norm
 from functools import partial
 
@@ -412,7 +412,7 @@ class WorkerThread(QThread):
         except:
             use_log = False
 
-        cname = 'new_' + fname[0:fname.rfind('xlsx')]+ 'cfg'
+        cname = fname[0:fname.rfind('.xlsx')]+ '_new.cfg'
         conf_file = open(cname,'wt',encoding='utf-8')
         for i in range(self.tableWidget.rowCount()):
             conf_file.write(str(self.tableWidget.cellWidget(i,0).currentIndex()) + ' ' +
@@ -444,10 +444,10 @@ class WorkerThread(QThread):
             self.progress_value.emit(num_row + 1)  # отрисовываем ProgresBar
             if num_row == 0:
                 continue
-            i10 = int(num_row / 1000000)
+            i10 = int(num_row / 10000)
             if i10 > i10l:
                 i10l = i10
-                f = ui.fname.replace(ui.fname.split('/')[-1], '{0:02d}'.format(i10) + ui.fname.split('/')[-1])
+                f = ui.fname.replace(ui.fname.split('/')[-1], '{0:02d}'.format(i10) + '_'+ ui.fname.split('/')[-1])
                 wb.save(f)
                 wb = Workbook(write_only=True)
                 ws = wb.create_sheet('Лист1')
@@ -473,6 +473,7 @@ class WorkerThread(QThread):
                     row_item = str(row[item1].value)                         #Если преобразовывать все в стринг, то только тут
                     if row_item == 'None' or row_item == '2001-01-00' or row_item == '2001-01-00 00:00:00' \
                                           or  row_item == 'null' or  row_item == 'NULL' \
+                                          or  row_item == '\\N' or  row_item == '\\n' \
                                           or  row_item == 'заполнить' or row_item == '00.00.0000'\
                                           or row_item == '0000-00-00' or row_item == 'ERROR' \
                                           or row_item == '=#ССЫЛ!' or row_item == '#ССЫЛ!'\
@@ -692,7 +693,7 @@ class WorkerThread(QThread):
                     mass.append(err_from_log.get(num_row + 1))
                     ws_err.append(mass)
     #                print(num_row, result_row['ФИО.Фамилия'], result_row['ФИО.Имя'], result_row['ФИО.Отчество'])
-        f = ui.fname.replace(ui.fname.split('/')[-1], '{0:02d}'.format(i10+1) + ui.fname.split('/')[-1])
+        f = ui.fname.replace(ui.fname.split('/')[-1], '{0:02d}'.format(i10+1) + '_'+ ui.fname.split('/')[-1])
         wb.save(f)
         f = ui.fname.replace(ui.fname.split('/')[-1], 'err'.format(i10+1) + ui.fname.split('/')[-1])
         wb_err.save(f)
