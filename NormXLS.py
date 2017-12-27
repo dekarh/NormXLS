@@ -445,261 +445,261 @@ class WorkerThread(QThread):
             if num_row == 0:
                 continue
             i10 = int(num_row / 10000)
-            if i10 > i10l:
+#--------------------------------------- С этим if не добавляло первую строку ----------------------------------
+#            if num_row == 0:
+#                continue
+#--------------------------------------- С этим if не добавляло первую строку ----------------------------------
+
+            result_row = {}
+
+            passport = norm.Passport()
+            phone = norm.Phone()
+
+            for num_item in range(self.tableWidget.rowCount()):
+                item0 = self.tableWidget.cellWidget(num_item, 0).currentIndex()
+                item1 = self.tableWidget.cellWidget(num_item, 1).currentIndex()
+                label0 = self.tableWidget.cellWidget(num_item, 0).currentText()
+                label1 = self.tableWidget.cellWidget(num_item, 1).currentText()
+
+                row_item = str(row[item1].value)                         #Если преобразовывать все в стринг, то только тут
+                if row_item == 'None' or row_item == '2001-01-00' or row_item == '2001-01-00 00:00:00' \
+                                      or  row_item == 'null' or  row_item == 'NULL' \
+                                      or  row_item == '\\N' or  row_item == '\\n' \
+                                      or  row_item == 'заполнить' or row_item == '00.00.0000'\
+                                      or row_item == '0000-00-00' or row_item == 'ERROR' \
+                                      or row_item == '=#ССЫЛ!' or row_item == '#ССЫЛ!'\
+                                      or row_item == '=#REF!' or row_item == '#REF!' or row_item == '-':
+                    row_item = ''
+                elif row_item == '0' and label0 != 'Пол':
+                    row_item = ''
+
+                if label0 in MANIPULATE_LABELS:
+
+                    if label0 in [MANIPULATE_LABELS[1], MANIPULATE_LABELS[3]]:
+                        FIO = norm.field2fio(row_item)
+                        if label0 == MANIPULATE_LABELS[1]:
+                            lab = FIO_LABELS
+                        elif label0 == MANIPULATE_LABELS[3]:
+                            lab = FIO_BIRTH_LABELS
+                        if row_item == '':
+                            for j in range(len(lab)):
+                                result_row[lab[j]] = norm.NEW_NULL_VALUE_FOR_ALL_TEXT
+                        else:
+                            for j in range(len(FIO)):
+                                result_row[lab[j]] = FIO[j]
+                        continue
+
+#------------------------------------------------------- Убрал класс Gender --------------------------------------
+#                    elif label0 == "Пол_получить_из_ФИО":
+#                        gender = norm.Gender(row_item)
+#                        result_row[GENDER_LABEL[0]] = gender.get_value()
+
+#                    elif label0 == "Пол_подставить_свои_значения":
+#                        gender = norm.Gender(FIO[2], gender_field_exists=True, gender=row_item) ## !!!!!!!!!!!!!!
+#                        result_row[GENDER_LABEL[0]] = gender.get_value()
+#------------------------------------------------------- Убрал класс Gender --------------------------------------
+# Регистрация -> Регион
+                    elif label0 == MANIPULATE_LABELS[5]:
+                        addr = norm.field2addr(row_item)
+                        lab = [ADRESS_REG_LABELS[1], ADRESS_REG_LABELS[2]]
+                        for j in range(len(addr)):
+                            result_row[lab[j]] = addr[j]
+# Регистрация -> Район
+                    elif label0 == MANIPULATE_LABELS[6]:
+                        addr = norm.field2addr(row_item)
+                        lab = [ADRESS_REG_LABELS[3], ADRESS_REG_LABELS[4]]
+                        for j in range(len(addr)):
+                            result_row[lab[j]] = addr[j]
+# Регистрация -> Город
+                    elif label0 == MANIPULATE_LABELS[7]:
+                        addr = norm.field2addr(row_item)
+                        lab = [ADRESS_REG_LABELS[5], ADRESS_REG_LABELS[6]]
+                        for j in range(len(addr)):
+                            result_row[lab[j]] = addr[j]
+# Регистрация -> Населенный_пункт
+                    elif label0 == MANIPULATE_LABELS[8]:
+                        addr = norm.field2addr(row_item)
+                        lab = [ADRESS_REG_LABELS[7], ADRESS_REG_LABELS[8]]
+                        for j in range(len(addr)):
+                            result_row[lab[j]] = addr[j]
+# Регистрация -> Улица
+                    elif label0 == MANIPULATE_LABELS[9]:
+                        addr = norm.field2addr(row_item)
+                        lab = [ADRESS_REG_LABELS[9], ADRESS_REG_LABELS[10]]
+                        for j in range(len(addr)):
+                            result_row[lab[j]] = addr[j]
+# ADRESS_LIVE_LABELS
+# Проживание -> Регион
+                    elif label0 == MANIPULATE_LABELS[11]:
+                        addr = norm.field2addr(row_item)
+                        lab = [ADRESS_LIVE_LABELS[1], ADRESS_LIVE_LABELS[2]]
+                        for j in range(len(addr)):
+                            result_row[lab[j]] = addr[j]
+# Проживание -> Район
+                    elif label0 == MANIPULATE_LABELS[12]:
+                        addr = norm.field2addr(row_item)
+                        lab = [ADRESS_LIVE_LABELS[3], ADRESS_LIVE_LABELS[4]]
+                        for j in range(len(addr)):
+                            result_row[lab[j]] = addr[j]
+# Проживание -> Город
+                    elif label0 == MANIPULATE_LABELS[13]:
+                        addr = norm.field2addr(row_item)
+                        lab = [ADRESS_LIVE_LABELS[5], ADRESS_LIVE_LABELS[6]]
+                        for j in range(len(addr)):
+                            result_row[lab[j]] = addr[j]
+# Проживание -> Населенный_пункт
+                    elif label0 == MANIPULATE_LABELS[14]:
+                        addr = norm.field2addr(row_item)
+                        lab = [ADRESS_LIVE_LABELS[7], ADRESS_LIVE_LABELS[8]]
+                        for j in range(len(addr)):
+                            result_row[lab[j]] = addr[j]
+# Проживание -> Улица
+                    elif label0 == MANIPULATE_LABELS[15]:
+                        addr = norm.field2addr(row_item)
+                        lab = [ADRESS_LIVE_LABELS[9], ADRESS_LIVE_LABELS[10]]
+                        for j in range(len(addr)):
+                            result_row[lab[j]] = addr[j]
+#Адрес регистрации из_поля
+                    elif label0 == MANIPULATE_LABELS[17]:
+                        result_row[ADRESS_REG_LABELS[0]] = '111111'
+                        adress_reg = norm.FullAdress(row_item)
+                        for z, cell in enumerate(adress_reg.get_values()):
+                            result_row[ADRESS_REG_LABELS[z]] = cell
+                        n = [char for char in result_row[ADRESS_REG_LABELS[0]] if char in string.digits]
+                        if len(n) != 6:
+                            result_row[ADRESS_REG_LABELS[0]] = '111111'
+
+# Адрес проживания из поля
+                    elif label0 == MANIPULATE_LABELS[19]:
+                        result_row[ADRESS_LIVE_LABELS[0]] = '111111'
+                        adress_zhit = norm.FullAdress(row_item)
+                        for z, cell in enumerate(adress_zhit.get_values()):
+                            result_row[ADRESS_LIVE_LABELS[z]] = cell
+                        n = [char for char in result_row[ADRESS_LIVE_LABELS[0]] if char in string.digits]
+                        if len(n) != 6:
+                            result_row[ADRESS_LIVE_LABELS[0]] = '111111'
+
+                elif label0 == '-------------------------':
+                    continue
+                elif label0 in SNILS_LABEL:
+                    result_row[label0] = norm.normalize_snils(row_item)
+                elif label0 in PLACE_BIRTH_LABELS:
+                    result_row[label0] = row_item
+                elif label0 in PASSPORT_DATA_LABELS:
+                    if PASSPORT_DATA_LABELS.index(label0) == 0:
+                        passport.seriya = row_item
+                    elif PASSPORT_DATA_LABELS.index(label0) == 1:
+                        passport.nomer = row_item
+                    elif PASSPORT_DATA_LABELS.index(label0) == 2:
+                        passport.date = row_item
+                    elif PASSPORT_DATA_LABELS.index(label0) == 3:
+                        passport.who = norm.normalize_text(row_item)
+                    elif PASSPORT_DATA_LABELS.index(label0) == 4:
+                        passport.cod = row_item
+
+                elif label0 in PHONES_LABELS:
+                    if PHONES_LABELS.index(label0) == 0:
+                        phone.tel_mob = row_item
+                    elif PHONES_LABELS.index(label0) == 1:
+                        phone.tel_rod = row_item
+                    elif PHONES_LABELS.index(label0) == 2:
+                        phone.tel_dom = row_item
+                elif label0 in DATE_BIRTH_LABEL:
+                    result_row[label0] = norm.normalize_date(row_item)
+                elif label0 in GENDER_LABEL:
+                    result_row[label0] = norm.normalize_gender(row_item)
+                elif label0 == ADRESS_REG_LABELS[0] or label0 == ADRESS_LIVE_LABELS[0]:
+                    result_row[label0] = norm.normalize_index(row_item)
+                elif label0 in ADRESS_REG_LABELS[11]:
+                    result_row[label0] = norm.normalize_home(row_item)
+                elif label0 in ADRESS_LIVE_LABELS[11]:
+                    result_row[label0] = norm.normalize_home(row_item)
+                elif label0 in ADRESS_REG_LABELS:
+                    result_row[label0] = row_item
+                elif label0 in ADRESS_LIVE_LABELS:
+                    result_row[label0] = row_item
+                elif label0 in TECH_LABELS:
+                    if label0 == TECH_LABELS[0]:
+                        result_row[label0] = norm.AGENT_ID
+                    elif label0 == TECH_LABELS[1]:
+                        result_row[label0] = norm.PODPISANT_ID
+                    elif label0 == TECH_LABELS[2]:
+                        result_row[label0] = norm.PREDSTRAH_ID
+                else:
+                    result_row[label0] = norm.normalize_text(row_item)
+
+            for num, z in enumerate(passport.get_values()):
+                result_row[PASSPORT_DATA_LABELS[num]] = z
+            for num, z in enumerate(phone.get_values()):
+                result_row[PHONES_LABELS[num]] = z
+
+            LABELS = [SNILS_LABEL, FIO_LABELS, FIO_BIRTH_LABELS, GENDER_LABEL, DATE_BIRTH_LABEL,
+                      PLACE_BIRTH_LABELS, PASSPORT_DATA_LABELS, ADRESS_REG_LABELS, ADRESS_LIVE_LABELS,
+                      PHONES_LABELS, TECH_LABELS]
+            mass = []
+            for l in LABELS:
+                for ll in l:
+                    mass.append(ll)
+            yum = True
+            yum_phone0 = -1
+            yum_phone1 = -1
+            yum_phone2 = -1
+            for num, cell in enumerate(mass):
+                if cell in result_row:
+                    mass[num] = result_row[cell]                # заполняем mass, чтобы его добавить как строку в xlsx
+                    if cell == PHONES_LABELS[0]:
+                        if mass[num] == norm.ERROR_VALUE:
+                            mass[num] = ''
+                        yum_phone0 = num
+                    elif cell == PHONES_LABELS[1]:
+                        if mass[num] == norm.ERROR_VALUE:
+                            mass[num] = ''
+                        yum_phone1 = num
+                    elif cell == PHONES_LABELS[2]:
+                        if mass[num] == norm.ERROR_VALUE:
+                            mass[num] = ''
+                        yum_phone2 = num
+                    elif mass[num] == norm.ERROR_VALUE:
+                        yum = False
+                else:
+                    mass[num] = ''                # заполняем mass, чтобы его добавить как строку в xlsx
+
+#            yam = 0
+#            if len(phone.tel_mob) > 0:
+#                yam = int(phone.tel_mob)
+#            if len(phone.tel_rod) > 0:
+#                yam = yam + int(phone.tel_rod)
+#            if len(phone.tel_dom) > 0:
+#                yam = yam + int(phone.tel_dom)
+
+            if mass[yum_phone0] == mass[yum_phone1] and mass[yum_phone0] !='':      # стираем дублирующиеся телефоны
+                mass[yum_phone1] = ''
+            if mass[yum_phone1] == mass[yum_phone2] and mass[yum_phone1] !='':
+                mass[yum_phone2] = ''
+            if mass[yum_phone0] == mass[yum_phone2] and mass[yum_phone0] !='':
+                mass[yum_phone2] = ''
+
+            if mass[yum_phone0] == '' and mass[yum_phone1] == '' and mass[yum_phone2] == '':
+                yum = False                                                  # если нет ни одного телефона - ошибка
+
+
+            if yum and err_from_log.get(num_row + 1) == None:
+                ws.append(mass)
+#                print(num_row, result_row['ФИО.Фамилия'], result_row['ФИО.Имя'], result_row['ФИО.Отчество'])
+            else:
+                mass.append(num_row + 1)
+                mass.append(err_from_log.get(num_row + 1))
+                ws_err.append(mass)
+#                print(num_row, result_row['ФИО.Фамилия'], result_row['ФИО.Имя'], result_row['ФИО.Отчество'])
+
+            if i10 > i10l:                                  # режем по 10000
                 i10l = i10
-                f = ui.fname.replace(ui.fname.split('/')[-1], '{0:02d}'.format(i10) + '_'+ ui.fname.split('/')[-1])
+                f = ui.fname.replace(ui.fname.split('/')[-1], '{0:02d}'.format(i10) + '_' + ui.fname.split('/')[-1])
                 wb.save(f)
                 wb = Workbook(write_only=True)
                 ws = wb.create_sheet('Лист1')
                 ws.append(HEAD_RESULT_EXCEL_FILE)  # добавляем первую строку xlsx
-            else:
 
-    #--------------------------------------- С этим if не добавляло первую строку ----------------------------------
-    #            if num_row == 0:
-    #                continue
-    #--------------------------------------- С этим if не добавляло первую строку ----------------------------------
-
-                result_row = {}
-
-                passport = norm.Passport()
-                phone = norm.Phone()
-
-                for num_item in range(self.tableWidget.rowCount()):
-                    item0 = self.tableWidget.cellWidget(num_item, 0).currentIndex()
-                    item1 = self.tableWidget.cellWidget(num_item, 1).currentIndex()
-                    label0 = self.tableWidget.cellWidget(num_item, 0).currentText()
-                    label1 = self.tableWidget.cellWidget(num_item, 1).currentText()
-
-                    row_item = str(row[item1].value)                         #Если преобразовывать все в стринг, то только тут
-                    if row_item == 'None' or row_item == '2001-01-00' or row_item == '2001-01-00 00:00:00' \
-                                          or  row_item == 'null' or  row_item == 'NULL' \
-                                          or  row_item == '\\N' or  row_item == '\\n' \
-                                          or  row_item == 'заполнить' or row_item == '00.00.0000'\
-                                          or row_item == '0000-00-00' or row_item == 'ERROR' \
-                                          or row_item == '=#ССЫЛ!' or row_item == '#ССЫЛ!'\
-                                          or row_item == '=#REF!' or row_item == '#REF!' or row_item == '-':
-                        row_item = ''
-                    elif row_item == '0' and label0 != 'Пол':
-                        row_item = ''
-
-                    if label0 in MANIPULATE_LABELS:
-
-                        if label0 in [MANIPULATE_LABELS[1], MANIPULATE_LABELS[3]]:
-                            FIO = norm.field2fio(row_item)
-                            if label0 == MANIPULATE_LABELS[1]:
-                                lab = FIO_LABELS
-                            elif label0 == MANIPULATE_LABELS[3]:
-                                lab = FIO_BIRTH_LABELS
-                            if row_item == '':
-                                for j in range(len(lab)):
-                                    result_row[lab[j]] = norm.NEW_NULL_VALUE_FOR_ALL_TEXT
-                            else:
-                                for j in range(len(FIO)):
-                                    result_row[lab[j]] = FIO[j]
-                            continue
-
-    #------------------------------------------------------- Убрал класс Gender --------------------------------------
-    #                    elif label0 == "Пол_получить_из_ФИО":
-    #                        gender = norm.Gender(row_item)
-    #                        result_row[GENDER_LABEL[0]] = gender.get_value()
-
-    #                    elif label0 == "Пол_подставить_свои_значения":
-    #                        gender = norm.Gender(FIO[2], gender_field_exists=True, gender=row_item) ## !!!!!!!!!!!!!!
-    #                        result_row[GENDER_LABEL[0]] = gender.get_value()
-    #------------------------------------------------------- Убрал класс Gender --------------------------------------
-# Регистрация -> Регион
-                        elif label0 == MANIPULATE_LABELS[5]:
-                            addr = norm.field2addr(row_item)
-                            lab = [ADRESS_REG_LABELS[1], ADRESS_REG_LABELS[2]]
-                            for j in range(len(addr)):
-                                result_row[lab[j]] = addr[j]
-# Регистрация -> Район
-                        elif label0 == MANIPULATE_LABELS[6]:
-                            addr = norm.field2addr(row_item)
-                            lab = [ADRESS_REG_LABELS[3], ADRESS_REG_LABELS[4]]
-                            for j in range(len(addr)):
-                                result_row[lab[j]] = addr[j]
-# Регистрация -> Город
-                        elif label0 == MANIPULATE_LABELS[7]:
-                            addr = norm.field2addr(row_item)
-                            lab = [ADRESS_REG_LABELS[5], ADRESS_REG_LABELS[6]]
-                            for j in range(len(addr)):
-                                result_row[lab[j]] = addr[j]
-# Регистрация -> Населенный_пункт
-                        elif label0 == MANIPULATE_LABELS[8]:
-                            addr = norm.field2addr(row_item)
-                            lab = [ADRESS_REG_LABELS[7], ADRESS_REG_LABELS[8]]
-                            for j in range(len(addr)):
-                                result_row[lab[j]] = addr[j]
-# Регистрация -> Улица
-                        elif label0 == MANIPULATE_LABELS[9]:
-                            addr = norm.field2addr(row_item)
-                            lab = [ADRESS_REG_LABELS[9], ADRESS_REG_LABELS[10]]
-                            for j in range(len(addr)):
-                                result_row[lab[j]] = addr[j]
-# ADRESS_LIVE_LABELS
-# Проживание -> Регион
-                        elif label0 == MANIPULATE_LABELS[11]:
-                            addr = norm.field2addr(row_item)
-                            lab = [ADRESS_LIVE_LABELS[1], ADRESS_LIVE_LABELS[2]]
-                            for j in range(len(addr)):
-                                result_row[lab[j]] = addr[j]
-# Проживание -> Район
-                        elif label0 == MANIPULATE_LABELS[12]:
-                            addr = norm.field2addr(row_item)
-                            lab = [ADRESS_LIVE_LABELS[3], ADRESS_LIVE_LABELS[4]]
-                            for j in range(len(addr)):
-                                result_row[lab[j]] = addr[j]
-# Проживание -> Город
-                        elif label0 == MANIPULATE_LABELS[13]:
-                            addr = norm.field2addr(row_item)
-                            lab = [ADRESS_LIVE_LABELS[5], ADRESS_LIVE_LABELS[6]]
-                            for j in range(len(addr)):
-                                result_row[lab[j]] = addr[j]
-# Проживание -> Населенный_пункт
-                        elif label0 == MANIPULATE_LABELS[14]:
-                            addr = norm.field2addr(row_item)
-                            lab = [ADRESS_LIVE_LABELS[7], ADRESS_LIVE_LABELS[8]]
-                            for j in range(len(addr)):
-                                result_row[lab[j]] = addr[j]
-# Проживание -> Улица
-                        elif label0 == MANIPULATE_LABELS[15]:
-                            addr = norm.field2addr(row_item)
-                            lab = [ADRESS_LIVE_LABELS[9], ADRESS_LIVE_LABELS[10]]
-                            for j in range(len(addr)):
-                                result_row[lab[j]] = addr[j]
-#Адрес регистрации из_поля
-                        elif label0 == MANIPULATE_LABELS[17]:
-                            result_row[ADRESS_REG_LABELS[0]] = '111111'
-                            adress_reg = norm.FullAdress(row_item)
-                            for z, cell in enumerate(adress_reg.get_values()):
-                                result_row[ADRESS_REG_LABELS[z]] = cell
-                            n = [char for char in result_row[ADRESS_REG_LABELS[0]] if char in string.digits]
-                            if len(n) != 6:
-                                result_row[ADRESS_REG_LABELS[0]] = '111111'
-
-# Адрес проживания из поля
-                        elif label0 == MANIPULATE_LABELS[19]:
-                            result_row[ADRESS_LIVE_LABELS[0]] = '111111'
-                            adress_zhit = norm.FullAdress(row_item)
-                            for z, cell in enumerate(adress_zhit.get_values()):
-                                result_row[ADRESS_LIVE_LABELS[z]] = cell
-                            n = [char for char in result_row[ADRESS_LIVE_LABELS[0]] if char in string.digits]
-                            if len(n) != 6:
-                                result_row[ADRESS_LIVE_LABELS[0]] = '111111'
-
-                    elif label0 == '-------------------------':
-                        continue
-                    elif label0 in SNILS_LABEL:
-                        result_row[label0] = norm.normalize_snils(row_item)
-                    elif label0 in PLACE_BIRTH_LABELS:
-                        result_row[label0] = row_item
-                    elif label0 in PASSPORT_DATA_LABELS:
-                        if PASSPORT_DATA_LABELS.index(label0) == 0:
-                            passport.seriya = row_item
-                        elif PASSPORT_DATA_LABELS.index(label0) == 1:
-                            passport.nomer = row_item
-                        elif PASSPORT_DATA_LABELS.index(label0) == 2:
-                            passport.date = row_item
-                        elif PASSPORT_DATA_LABELS.index(label0) == 3:
-                            passport.who = norm.normalize_text(row_item)
-                        elif PASSPORT_DATA_LABELS.index(label0) == 4:
-                            passport.cod = row_item
-
-                    elif label0 in PHONES_LABELS:
-                        if PHONES_LABELS.index(label0) == 0:
-                            phone.tel_mob = row_item
-                        elif PHONES_LABELS.index(label0) == 1:
-                            phone.tel_rod = row_item
-                        elif PHONES_LABELS.index(label0) == 2:
-                            phone.tel_dom = row_item
-                    elif label0 in DATE_BIRTH_LABEL:
-                        result_row[label0] = norm.normalize_date(row_item)
-                    elif label0 in GENDER_LABEL:
-                        result_row[label0] = norm.normalize_gender(row_item)
-                    elif label0 == ADRESS_REG_LABELS[0] or label0 == ADRESS_LIVE_LABELS[0]:
-                        result_row[label0] = norm.normalize_index(row_item)
-                    elif label0 in ADRESS_REG_LABELS[11]:
-                        result_row[label0] = norm.normalize_home(row_item)
-                    elif label0 in ADRESS_LIVE_LABELS[11]:
-                        result_row[label0] = norm.normalize_home(row_item)
-                    elif label0 in ADRESS_REG_LABELS:
-                        result_row[label0] = row_item
-                    elif label0 in ADRESS_LIVE_LABELS:
-                        result_row[label0] = row_item
-                    elif label0 in TECH_LABELS:
-                        if label0 == TECH_LABELS[0]:
-                            result_row[label0] = norm.AGENT_ID
-                        elif label0 == TECH_LABELS[1]:
-                            result_row[label0] = norm.PODPISANT_ID
-                        elif label0 == TECH_LABELS[2]:
-                            result_row[label0] = norm.PREDSTRAH_ID
-                    else:
-                        result_row[label0] = norm.normalize_text(row_item)
-
-                for num, z in enumerate(passport.get_values()):
-                    result_row[PASSPORT_DATA_LABELS[num]] = z
-                for num, z in enumerate(phone.get_values()):
-                    result_row[PHONES_LABELS[num]] = z
-
-                LABELS = [SNILS_LABEL, FIO_LABELS, FIO_BIRTH_LABELS, GENDER_LABEL, DATE_BIRTH_LABEL,
-                          PLACE_BIRTH_LABELS, PASSPORT_DATA_LABELS, ADRESS_REG_LABELS, ADRESS_LIVE_LABELS,
-                          PHONES_LABELS, TECH_LABELS]
-                mass = []
-                for l in LABELS:
-                    for ll in l:
-                        mass.append(ll)
-                yum = True
-                yum_phone0 = -1
-                yum_phone1 = -1
-                yum_phone2 = -1
-                for num, cell in enumerate(mass):
-                    if cell in result_row:
-                        mass[num] = result_row[cell]                # заполняем mass, чтобы его добавить как строку в xlsx
-                        if cell == PHONES_LABELS[0]:
-                            if mass[num] == norm.ERROR_VALUE:
-                                mass[num] = ''
-                            yum_phone0 = num
-                        elif cell == PHONES_LABELS[1]:
-                            if mass[num] == norm.ERROR_VALUE:
-                                mass[num] = ''
-                            yum_phone1 = num
-                        elif cell == PHONES_LABELS[2]:
-                            if mass[num] == norm.ERROR_VALUE:
-                                mass[num] = ''
-                            yum_phone2 = num
-                        elif mass[num] == norm.ERROR_VALUE:
-                            yum = False
-                    else:
-                        mass[num] = ''                # заполняем mass, чтобы его добавить как строку в xlsx
-
-    #            yam = 0
-    #            if len(phone.tel_mob) > 0:
-    #                yam = int(phone.tel_mob)
-    #            if len(phone.tel_rod) > 0:
-    #                yam = yam + int(phone.tel_rod)
-    #            if len(phone.tel_dom) > 0:
-    #                yam = yam + int(phone.tel_dom)
-
-                if mass[yum_phone0] == mass[yum_phone1] and mass[yum_phone0] !='':      # стираем дублирующиеся телефоны
-                    mass[yum_phone1] = ''
-                if mass[yum_phone1] == mass[yum_phone2] and mass[yum_phone1] !='':
-                    mass[yum_phone2] = ''
-                if mass[yum_phone0] == mass[yum_phone2] and mass[yum_phone0] !='':
-                    mass[yum_phone2] = ''
-
-                if mass[yum_phone0] == '' and mass[yum_phone1] == '' and mass[yum_phone2] == '':
-                    yum = False                                                  # если нет ни одного телефона - ошибка
-
-
-                if yum and err_from_log.get(num_row + 1) == None:
-                    ws.append(mass)
-    #                print(num_row, result_row['ФИО.Фамилия'], result_row['ФИО.Имя'], result_row['ФИО.Отчество'])
-                else:
-                    mass.append(num_row + 1)
-                    mass.append(err_from_log.get(num_row + 1))
-                    ws_err.append(mass)
-    #                print(num_row, result_row['ФИО.Фамилия'], result_row['ФИО.Имя'], result_row['ФИО.Отчество'])
         f = ui.fname.replace(ui.fname.split('/')[-1], '{0:02d}'.format(i10+1) + '_'+ ui.fname.split('/')[-1])
         wb.save(f)
         f = ui.fname.replace(ui.fname.split('/')[-1], 'err'.format(i10+1) + ui.fname.split('/')[-1])
