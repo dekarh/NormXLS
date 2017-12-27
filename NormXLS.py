@@ -627,6 +627,13 @@ class WorkerThread(QThread):
                         result_row[label0] = row_item
                     elif label0 in ADRESS_LIVE_LABELS:
                         result_row[label0] = row_item
+                    elif label0 in TECH_LABELS:
+                        if label0 == TECH_LABELS[0]:
+                            result_row[label0] = norm.AGENT_ID
+                        elif label0 == TECH_LABELS[1]:
+                            result_row[label0] = norm.PODPISANT_ID
+                        elif label0 == TECH_LABELS[2]:
+                            result_row[label0] = norm.PREDSTRAH_ID
                     else:
                         result_row[label0] = norm.normalize_text(row_item)
 
@@ -637,7 +644,7 @@ class WorkerThread(QThread):
 
                 LABELS = [SNILS_LABEL, FIO_LABELS, FIO_BIRTH_LABELS, GENDER_LABEL, DATE_BIRTH_LABEL,
                           PLACE_BIRTH_LABELS, PASSPORT_DATA_LABELS, ADRESS_REG_LABELS, ADRESS_LIVE_LABELS,
-                          PHONES_LABELS]
+                          PHONES_LABELS, TECH_LABELS]
                 mass = []
                 for l in LABELS:
                     for ll in l:
