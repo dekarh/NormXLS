@@ -39,6 +39,10 @@ MANIPULATE_LABELS = ["-------------------------"
                      , "Адрес регистрации из_поля"
                      , "-------------------------"
                      , "Адрес проживания из поля"
+                     , "-------------------------"
+                     , "Регион регистрации из номера"
+                     , "-------------------------"
+                     , "Регион проживания из номера"
 #                     , "-------------------------"
 #                     , "Пол_получить_из_ФИО"
 #                     , "Пол_подставить_свои_значения"
@@ -578,6 +582,20 @@ class WorkerThread(QThread):
                         n = [char for char in result_row[ADRESS_LIVE_LABELS[0]] if char in string.digits]
                         if len(n) != 6:
                             result_row[ADRESS_LIVE_LABELS[0]] = '111111'
+
+# Регион регистрации из номера
+                    elif label0 == MANIPULATE_LABELS[21]:
+                        addr = norm.field2addr(norm.REGIONS[norm.intl(row_item)])
+                        lab = [ADRESS_REG_LABELS[1], ADRESS_REG_LABELS[2]]
+                        for j in range(len(addr)):
+                            result_row[lab[j]] = addr[j]
+
+# Регион проживания из номера
+                    elif label0 == MANIPULATE_LABELS[23]:
+                        addr = norm.field2addr(norm.REGIONS[norm.intl(row_item)])
+                        lab = [ADRESS_LIVE_LABELS[1], ADRESS_LIVE_LABELS[2]]
+                        for j in range(len(addr)):
+                            result_row[lab[j]] = addr[j]
 
                 elif label0 == '-------------------------':
                     continue
