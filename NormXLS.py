@@ -18,6 +18,10 @@ from PyQt5.QtCore import QThread
 #import xlwt
 import NormalizeFields as norm
 from functools import partial
+from mysql.connector import MySQLConnection
+
+from lib import read_config
+
 
 MANIPULATE_LABELS = ["-------------------------"
                      , "ФИО из поля"
@@ -381,6 +385,32 @@ class WorkerThread(QThread):
         super(WorkerThread, self).__init__(parent)
         self.tableWidget = tableWidget
         self.sheet = sheet
+        if norm.GENERATE_SNILS:
+            dbconfig = read_config(filename='NormXLS.ini', section='main_mysql')
+            dbconn = MySQLConnection(**dbconfig)
+            dbcursor = dbconn.cursor()
+            dbcursor.execute('SELECT min(`number`) FROM  saturn_crm.clients WHERE `number` > 99000000000 and subdomain_id = 2;')
+            dbrows = dbcursor.fetchall()
+            dbconn.close()
+            self.start_snils = int('{0:011d}'.format(dbrows[0][0])[:-2])  # 9 цифр неправильного СНИЛСа с которого уменьшаем
+            self.wb_comp = Workbook(write_only=True)
+            self.ws_comp = self.wb_comp.create_sheet('Лист1')
+            self.ws_comp.append(['Реальный СНИЛС', 'Псевдо-СНИЛС'])  # добавляем первую строку xlsx
+        else:
+            self.start_snils = 0
+
+    def checksum(self, snils_dig):  # Вычисляем 2 последних цифры СНИЛС по первым 9-ти
+        def snils_csum(sn):
+            k = range(9, 0, -1)
+            pairs = zip(k, [int(x) for x in sn.replace('-', '').replace(' ', '')])
+            return sum([k * v for k, v in pairs])
+        snils = '{0:09d}'.format(snils_dig)
+        csum = snils_csum(snils)
+        while csum > 101:
+            csum %= 101
+        if csum in (100, 101):
+            csum = 0
+        return csum
 
     def run(self):
         self.start_process()
@@ -600,7 +630,28 @@ class WorkerThread(QThread):
                 elif label0 == '-------------------------':
                     continue
                 elif label0 in SNILS_LABEL:
-                    result_row[label0] = norm.normalize_snils(row_item)
+                    if norm.GENERATE_SNILS:
+                        dbconfig = read_config(filename='NormXLS.ini', section='main_mysql')
+                        dbconn = MySQLConnection(**dbconfig)
+                        count_snils = 1
+                        cached_snils = 0
+                        while count_snils > 0:
+                            self.start_snils -= 1
+                            checksum_snils = self.checksum(self.start_snils)
+                            for i in range(0, 99):
+                                if i != checksum_snils:
+                                    full_snils = self.start_snils * 100 + i
+                                    dbcursor = dbconn.cursor()
+                                    dbcursor.execute('SELECT `number` FROM clients WHERE `number` = %s', (full_snils,))
+                                    dbchk = dbcursor.fetchall()
+                                    if len(dbchk) == 0:
+                                        cached_snils = full_snils
+                                        count_snils -= 1
+                        dbconn.close()
+                        result_row[label0] = norm.normalize_snils(cached_snils)
+                        self.ws_comp.append([row_item, cached_snils])
+                    else:
+                        result_row[label0] = norm.normalize_snils(row_item)
                 elif label0 in PLACE_BIRTH_LABELS:
                     result_row[label0] = row_item
                 elif label0 in PASSPORT_DATA_LABELS:
@@ -724,6 +775,8 @@ class WorkerThread(QThread):
         wb_err.save(f)
         if use_log:
             log_file.close()
+        if norm.GENERATE_SNILS:
+            self.wb_comp.save(ui.fname.replace(ui.fname.split('/')[-1], 'com'.format(i10+1) + ui.fname.split('/')[-1]))
 
 
 class MyWindow(QMainWindow):

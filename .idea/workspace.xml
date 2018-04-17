@@ -29,11 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="NormXLS.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NormXLS.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NormXLS.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="587" selection-start-line="587" selection-end-line="587" />
+            <state relative-caret-position="382">
+              <caret line="650" selection-start-line="650" selection-end-line="650" />
               <folding>
                 <element signature="e#143#153#0" expanded="true" />
               </folding>
@@ -41,11 +41,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NormalizeFields.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="connection.py" pinned="false" current-in-tab="false">
+        <entry file="file:///usr/lib/python3/dist-packages/mysql/connector/connection.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="495" selection-start-line="495" selection-end-line="495" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cursor.py" pinned="false" current-in-tab="false">
+        <entry file="file:///usr/lib/python3/dist-packages/mysql/connector/cursor.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="282">
+              <caret line="557" selection-start-line="557" selection-end-line="557" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NormalizeFields.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/NormalizeFields.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1566">
-              <caret line="87" column="6" selection-start-line="87" selection-start-column="6" selection-end-line="87" selection-end-column="6" />
+            <state relative-caret-position="216">
+              <caret line="93" column="22" selection-start-line="93" selection-start-column="22" selection-end-line="93" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -75,6 +93,8 @@
       <find>xlsx</find>
       <find>HEAD_RESULT_EXCEL_FILE</find>
       <find>wb</find>
+      <find>UPDATE</find>
+      <find>start_snils</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -99,7 +119,7 @@
   <component name="ProjectFrameBounds" extendedState="4">
     <option name="x" value="588" />
     <option name="y" value="24" />
-    <option name="width" value="1329" />
+    <option name="width" value="1332" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -142,7 +162,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/NormXLS.py" />
-      <option name="PARAMETERS" value="$USER_HOME$/CheckLoad/2018-04-13/вОПСхалву9618_206/150штХалва.xlsx" />
+      <option name="PARAMETERS" value="$USER_HOME$/CheckLoad/2018-04-13/вПАФхалву9618_206/13штХалва.xlsx" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -285,7 +305,7 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="_new_regexPattern" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
@@ -299,7 +319,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
     <configuration default="true" type="tests" factoryName="py.test">
@@ -314,7 +334,7 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -347,7 +367,7 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="_new_regexPattern" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
@@ -361,7 +381,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
     <configuration default="true" type="tests" factoryName="py.test">
@@ -376,7 +396,7 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
   </component>
@@ -489,11 +509,18 @@
       <option name="project" value="LOCAL" />
       <updated>1514360400008</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Добавил обработку региона из номера регионов РФ">
+      <created>1523686430630</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1523686430630</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="588" y="24" width="1329" height="1056" extended-state="4" />
+    <frame x="588" y="24" width="1332" height="1056" extended-state="4" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.23567335" />
@@ -504,7 +531,7 @@
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4010811" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4010811" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Coverage" order="3" side_tool="true" />
@@ -573,20 +600,26 @@
     <MESSAGE value="Добавил \N&#10;Поправил чтобы обрабатывало файлы не из локальной директории&#10;Изменил нарезку с 1млн на 10000" />
     <MESSAGE value="Добавил заполнение &quot;Агент_Ид&quot;, &quot;Подписант_Ид&quot;, &quot;Пред_Страховщик_Ид&quot;" />
     <MESSAGE value="Исправил ошибку - пропускал 1 строчку при сохранении очередного 10000 файла" />
-    <option name="LAST_COMMIT_MESSAGE" value="Исправил ошибку - пропускал 1 строчку при сохранении очередного 10000 файла" />
+    <MESSAGE value="Добавил обработку региона из номера регионов РФ" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил обработку региона из номера регионов РФ" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/NormXLS.py</url>
-          <line>587</line>
-          <option name="timeStamp" value="354" />
+          <line>387</line>
+          <option name="timeStamp" value="357" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/NormXLS.py</url>
-          <line>594</line>
-          <option name="timeStamp" value="355" />
+          <line>650</line>
+          <option name="timeStamp" value="358" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/NormXLS.py</url>
+          <line>636</line>
+          <option name="timeStamp" value="359" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -596,7 +629,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="356" />
+      <option name="time" value="360" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -605,11 +638,22 @@
         <watch expression="norm.intl(row_item)" language="Python" />
         <watch expression="ADRESS_REG_LABELS[2]" language="Python" />
         <watch expression="len(addr)" language="Python" />
+        <watch expression="Ui_MainWindow.start_snils" language="Python" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>Ui_MainWindow.start_snils</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>Ui_MainWindow.start_snils()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>norm.REGIONS[90]</expression-string>
         <language-id>Python</language-id>
@@ -645,32 +689,9 @@
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>norm.REGIONS[85]</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>norm.REGIONS[81]</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>norm.REGIONS[80]</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/NormalizeFields.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="50" column="24" lean-forward="true" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui.py" />
     <entry file="file://$PROJECT_DIR$/NormalizeFields.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -796,20 +817,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NormalizeFields.py">
+    <entry file="file:///usr/lib/python3/dist-packages/mysql/connector/connection.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1566">
-          <caret line="87" column="6" selection-start-line="87" selection-start-column="6" selection-end-line="87" selection-end-column="6" />
+        <state relative-caret-position="300">
+          <caret line="495" selection-start-line="495" selection-end-line="495" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3/dist-packages/mysql/connector/cursor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="557" selection-start-line="557" selection-end-line="557" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/NormXLS.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="587" selection-start-line="587" selection-end-line="587" />
+        <state relative-caret-position="382">
+          <caret line="650" selection-start-line="650" selection-end-line="650" />
           <folding>
             <element signature="e#143#153#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NormalizeFields.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="93" column="22" selection-start-line="93" selection-start-column="22" selection-end-line="93" selection-end-column="22" />
         </state>
       </provider>
     </entry>
