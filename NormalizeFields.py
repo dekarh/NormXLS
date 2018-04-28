@@ -54,7 +54,7 @@ FEMALE_GENDER_VALUE = 'Женский'
 MALE_GENDER_VALUE = 'Мужской'
 ########################################################################################################################
 # ЗАПОЛНЕНИЕ Агент_Ид, Подписант_Ид, Пред_Страховщик_Ид
-AGENT_ID = '9543'
+AGENT_ID = '9637'
 PODPISANT_ID = '201'
 PREDSTRAH_ID = '1'
 ########################################################################################################################
@@ -142,7 +142,7 @@ def normalize_snils(snils):
 def field2fio(field):
     if len(field) > 0 and field != NULL_VALUE:
         first_name, second_name, third_name = '', '', ''
-        field = field.strip().split(' ')
+        field = field.strip().replace('  ',' ').replace('  ',' ').split(' ')
         for i, word in enumerate(field):
             if i == 0:
                 first_name = field[i]
