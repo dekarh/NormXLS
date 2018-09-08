@@ -55,6 +55,7 @@ MANIPULATE_LABELS = ["-------------------------"
 SNILS_LABEL = ["СНИЛС"]
 FIO_LABELS = ["ФИО.Фамилия", "ФИО.Имя", "ФИО.Отчество"]
 FIO_BIRTH_LABELS = ["ФИО_при_рождении.Фамилия", "ФИО_при_рождении.Имя", "ФИО_при_рождении.Отчество"]
+FIO_SNILS_LABELS = ["Фамилия_по_СНИЛС", "Имя_по_СНИЛС", "Отчество_по_СНИЛС"]
 GENDER_LABEL = ["Пол"]
 DATE_BIRTH_LABEL = ["Дата_рождения"]
 PLACE_BIRTH_LABELS = ["Место_рождения.Страна", "Место_рождения.Область", "Место_рождения.Район",
@@ -91,13 +92,14 @@ TECH_LABELS = ["Агент_Ид", "Подписант_Ид", "Пред_Стра�
 #                                   PHONES_LABELS, MANIPULATE_LABELS]
 #------------------------Отключил MANIPULATE_LABELS------------------------------------------------------------
 
-FIELDS_IN_RESULT_TABLE_COMPLETE = [SNILS_LABEL, FIO_LABELS, FIO_BIRTH_LABELS, GENDER_LABEL, DATE_BIRTH_LABEL,
-                                   PLACE_BIRTH_LABELS, PASSPORT_DATA_LABELS, ADRESS_REG_LABELS, ADRESS_LIVE_LABELS,
-                                   PHONES_LABELS, TECH_LABELS, MANIPULATE_LABELS]
+FIELDS_IN_RESULT_TABLE_COMPLETE = [SNILS_LABEL, FIO_LABELS, FIO_BIRTH_LABELS, FIO_SNILS_LABELS, GENDER_LABEL,
+                                   DATE_BIRTH_LABEL, PLACE_BIRTH_LABELS, PASSPORT_DATA_LABELS, ADRESS_REG_LABELS,
+                                   ADRESS_LIVE_LABELS, PHONES_LABELS, TECH_LABELS, MANIPULATE_LABELS]
 
 HEAD_RESULT_EXCEL_FILE = ['СНИЛС',
                           'Фамилия', 'Имя', 'Отчество',
                           'Фамилия_при_рождении', 'Имя_при_рождении', 'Отчество_при_рождении',
+                          'Фамилия_по_СНИЛС', 'Имя_по_СНИЛС', 'Отчество_по_СНИЛС',
                           'Пол(0_мужской,1_женский)',
                           'Дата_рождения',
                           'Страна_рождения', 'Область_рождения', 'Район_рождения', 'Город_рождения',
@@ -702,7 +704,7 @@ class WorkerThread(QThread):
             for num, z in enumerate(phone.get_values()):
                 result_row[PHONES_LABELS[num]] = z
 
-            LABELS = [SNILS_LABEL, FIO_LABELS, FIO_BIRTH_LABELS, GENDER_LABEL, DATE_BIRTH_LABEL,
+            LABELS = [SNILS_LABEL, FIO_LABELS, FIO_BIRTH_LABELS, FIO_SNILS_LABELS, GENDER_LABEL, DATE_BIRTH_LABEL,
                       PLACE_BIRTH_LABELS, PASSPORT_DATA_LABELS, ADRESS_REG_LABELS, ADRESS_LIVE_LABELS,
                       PHONES_LABELS, TECH_LABELS]
             mass = []

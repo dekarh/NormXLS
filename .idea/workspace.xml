@@ -2,13 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a1775570-a7a5-488a-a409-513c409cd0ec" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/NormXLS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/NormXLS.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NormXLS.py" beforeDir="false" afterPath="$PROJECT_DIR$/NormXLS.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NormalizeFields.py" beforeDir="false" afterPath="$PROJECT_DIR$/NormalizeFields.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib.py" afterDir="false" />
     </list>
     <ignored path="b.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,16 +26,40 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="869256479">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="py" value="140" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="Python" value="140" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
   <component name="FavoritesManager">
     <favorites_list name="b" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="NormXLS.py" pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/NormXLS.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5616">
-              <caret line="512" column="37" selection-start-line="512" selection-start-column="37" selection-end-line="512" selection-end-column="37" />
+            <state relative-caret-position="-9593">
+              <caret line="98" column="22" selection-start-line="98" selection-end-line="98" selection-end-column="22" />
               <folding>
                 <element signature="e#143#153#0" expanded="true" />
               </folding>
@@ -39,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NormalizeFields.py" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NormalizeFields.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2106">
-              <caret line="148" column="24" selection-start-line="148" selection-start-column="24" selection-end-line="148" selection-end-column="24" />
+            <state relative-caret-position="165">
+              <caret line="56" column="8" selection-start-line="56" selection-end-line="56" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -71,10 +99,10 @@
       <find>sys.arg</find>
       <find>cfg</find>
       <find>xlsx</find>
-      <find>HEAD_RESULT_EXCEL_FILE</find>
       <find>wb</find>
       <find>UPDATE</find>
       <find>start_snils</find>
+      <find>HEAD_RESULT_EXCEL_FILE</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -97,10 +125,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="4">
-    <option name="x" value="347" />
-    <option name="y" value="24" />
-    <option name="width" value="1332" />
-    <option name="height" value="1056" />
+    <option name="x" value="128" />
+    <option name="y" value="27" />
+    <option name="width" value="1281" />
+    <option name="height" value="1053" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -128,55 +156,6 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="NormXLS" type="PythonConfigurationType" factoryName="Python">
-      <module name="NormXLS" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="/usr/bin/python3.5" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/NormXLS.py" />
-      <option name="PARAMETERS" value="$USER_HOME$/CheckLoad/2018-04-13/вПАФхалву9618_206/13штХалва.xlsx" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <module name="b" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration default="true" type="Tox" factoryName="Tox">
-      <module name="b" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-    </configuration>
     <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -285,8 +264,9 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="_new_regexPattern" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
       <module name="b" />
@@ -299,8 +279,9 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
     </configuration>
     <configuration default="true" type="tests" factoryName="py.test">
       <module name="b" />
@@ -314,8 +295,65 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="NormXLS" type="PythonConfigurationType" factoryName="Python">
+      <module name="NormXLS" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/bin/python3.6" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/NormXLS.py" />
+      <option name="PARAMETERS" value="$USER_HOME$/CheckLoad/2018-09-08/тостер10222/тостер2безЛишнего.xlsx" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="b" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <module name="b" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <method v="2" />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
       <module name="b" />
@@ -334,6 +372,7 @@
       <option name="TEST_TYPE" value="TEST_SCRIPT" />
       <option name="PATTERN" value="" />
       <option name="USE_PATTERN" value="false" />
+      <method v="2" />
     </configuration>
     <configuration default="true" type="tests" factoryName="Nosetests">
       <module name="b" />
@@ -347,8 +386,9 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="_new_regexPattern" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
       <module name="b" />
@@ -361,8 +401,9 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
     </configuration>
     <configuration default="true" type="tests" factoryName="py.test">
       <module name="b" />
@@ -376,8 +417,9 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
     </configuration>
   </component>
   <component name="SvnConfiguration">
@@ -510,34 +552,40 @@
       <option name="project" value="LOCAL" />
       <updated>1524915381796</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Добавил lib.py">
+      <created>1530468043494</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1530468043494</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="347" y="24" width="1332" height="1056" extended-state="4" />
-    <editor active="true" />
+    <frame x="128" y="27" width="1281" height="1053" extended-state="4" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.23567335" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" x="216" y="377" width="1064" height="293" id="Run" order="2" weight="0.32580644" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3268817" />
-      <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4010811" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Data View" order="4" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32795697" />
+      <window_info anchor="bottom" x="216" y="377" width="1064" height="293" id="Run" order="2" weight="0.32580644" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.40086675" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.3268817" />
+      <window_info anchor="bottom" id="Application Servers" order="10" />
+      <window_info anchor="bottom" id="Python Console" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Application Servers" order="7" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32795697" />
-      <window_info anchor="right" id="Coverage" order="3" side_tool="true" />
+      <window_info anchor="right" id="Coverage" order="4" side_tool="true" />
+      <window_info anchor="right" id="Data View" order="5" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -597,25 +645,31 @@
     <MESSAGE value="Добавил обработку региона из номера регионов РФ" />
     <MESSAGE value="Добавил генерацию СНИЛС. Очень медленно и не подряд генерирует )))" />
     <MESSAGE value="Добавил отлов ошибки с несколькими пробелами между ФИО при конвертации ФИО одним полем" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавил отлов ошибки с несколькими пробелами между ФИО при конвертации ФИО одним полем" />
+    <MESSAGE value="Добавил lib.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил lib.py" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/NormXLS.py</url>
-          <line>387</line>
-          <option name="timeStamp" value="357" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/NormXLS.py</url>
-          <line>650</line>
+          <line>652</line>
           <option name="timeStamp" value="358" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/NormXLS.py</url>
-          <line>636</line>
+          <line>638</line>
           <option name="timeStamp" value="359" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/NormXLS.py</url>
+          <line>773</line>
+          <option name="timeStamp" value="360" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/NormXLS.py</url>
+          <line>757</line>
+          <option name="timeStamp" value="362" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -625,7 +679,6 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="360" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -635,11 +688,17 @@
         <watch expression="ADRESS_REG_LABELS[2]" language="Python" />
         <watch expression="len(addr)" language="Python" />
         <watch expression="Ui_MainWindow.start_snils" language="Python" />
+        <watch expression="HEAD_RESULT_EXCEL_FILE" language="Python" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>HEAD_RESULT_EXCEL_FILE</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>Ui_MainWindow.start_snils</expression-string>
         <language-id>Python</language-id>
@@ -688,99 +747,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/NormalizeFields.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="401" column="1" selection-start-line="401" selection-start-column="1" selection-end-line="401" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui.py" />
-    <entry file="file://$PROJECT_DIR$/ui.py" />
-    <entry file="file://$PROJECT_DIR$/NormalizeFields.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="382" selection-start-line="382" selection-end-line="382" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui.py" />
-    <entry file="file://$PROJECT_DIR$/NormalizeFields.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="183" column="24" selection-start-line="183" selection-start-column="24" selection-end-line="183" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui.py" />
-    <entry file="file://$USER_HOME$/.PyCharm40/system/python_stubs/-475245633/PyQt5/QtCore/QThread.py" />
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydev_monkey_qt.py" />
-    <entry file="file://$PROJECT_DIR$/NormalizeFields.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm40/system/python_stubs/-475245633/builtins.py" />
-    <entry file="file://$PROJECT_DIR$/ui.py" />
-    <entry file="file://$USER_HOME$/.PyCharm40/system/python_stubs/-475245633/PyQt5/QtCore/QThread.py" />
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydev_monkey_qt.py" />
-    <entry file="file://$PROJECT_DIR$/NormalizeFields.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui.py" />
-    <entry file="file://$USER_HOME$/.PyCharm40/system/python_stubs/-475245633/PyQt5/QtCore/QThread.py" />
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydev_monkey_qt.py" />
-    <entry file="file://$PROJECT_DIR$/NormalizeFields.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm40/system/python_stubs/-475245633/builtins.py" />
-    <entry file="file://$PROJECT_DIR$/ui.py" />
-    <entry file="file://$USER_HOME$/.PyCharm40/system/python_stubs/-475245633/PyQt5/QtCore/QThread.py" />
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydev_monkey_qt.py" />
-    <entry file="file://$PROJECT_DIR$/NormalizeFields.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="86" selection-start-line="86" selection-end-line="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui.py" />
-    <entry file="file://$USER_HOME$/.PyCharm40/system/python_stubs/-475245633/PyQt5/QtCore/QThread.py" />
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydev_monkey_qt.py" />
-    <entry file="file://$PROJECT_DIR$/NormalizeFields.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="324" column="11" selection-start-line="324" selection-start-column="6" selection-end-line="324" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui.py" />
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydev_monkey_qt.py" />
-    <entry file="file://$PROJECT_DIR$/NormalizeFields.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="324" column="11" selection-start-line="324" selection-start-column="6" selection-end-line="324" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui.py" />
-    <entry file="file://$PROJECT_DIR$/NormalizeFields.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/myPython352/Lib/zipfile.py" />
     <entry file="uml://Python/ui.WorkerThread" />
     <entry file="file://$USER_HOME$/.PyCharm40/system/python_stubs/-475245633/PyQt5/QtCore/QThread.py" />
@@ -792,13 +758,7 @@
     <entry file="file:///usr/local/lib/python3.5/dist-packages/openpyxl/cell/cell.py" />
     <entry file="file://$PROJECT_DIR$/ui.py" />
     <entry file="file://$PROJECT_DIR$/../NormalizeFields/NormalizeFields.py" />
-    <entry file="file://$USER_HOME$/.local/lib/python3.5/site-packages/openpyxl/descriptors/nested.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python3.5/site-packages/openpyxl/descriptors/nested.py" />
     <entry file="file:///usr/lib/python3/dist-packages/apport_python_hook.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="283">
@@ -806,13 +766,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.local/lib/python3.5/site-packages/openpyxl/worksheet/read_only.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="108" selection-start-line="108" selection-end-line="108" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python3.5/site-packages/openpyxl/worksheet/read_only.py" />
     <entry file="file:///usr/lib/python3/dist-packages/mysql/connector/cursor.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="282">
@@ -829,15 +783,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/NormalizeFields.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2106">
-          <caret line="148" column="24" selection-start-line="148" selection-start-column="24" selection-end-line="148" selection-end-column="24" />
+        <state relative-caret-position="165">
+          <caret line="56" column="8" selection-start-line="56" selection-end-line="56" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/NormXLS.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5616">
-          <caret line="512" column="37" selection-start-line="512" selection-start-column="37" selection-end-line="512" selection-end-column="37" />
+        <state relative-caret-position="-9593">
+          <caret line="98" column="22" selection-start-line="98" selection-end-line="98" selection-end-column="22" />
           <folding>
             <element signature="e#143#153#0" expanded="true" />
           </folding>
